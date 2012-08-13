@@ -8,7 +8,7 @@
 
 #import "ServerBrowserTableViewController.h"
 #import "ServerRunningViewController.h"
-
+#import "AppDelegate.h"
 @interface ServerBrowserTableViewController()
 @property(nonatomic, retain) NSMutableArray *services;
 
@@ -76,6 +76,21 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     self.services = nil;
 }
 
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    
+//    /*
+//     When a row is selected, the segue creates the detail view controller as the destination.
+//     Set the detail view controller's detail item to the item associated with the selected row.
+//     */
+//    if ([[segue identifier] isEqualToString:@"ShowSelectedPlay"]) {
+//        
+////        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+//        serverRunningVC = [segue destinationViewController];
+//        
+//    }
+//}
+
+
 - (NSMutableArray *)services {
     if(nil == _services) {
         self.services = [NSMutableArray array];
@@ -104,7 +119,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     // this is called when the remote side finishes joining with the socket as
     // notification that the other side has made its connection with this side
     serverRunningVC.server = server;
-    [self.navigationController pushViewController:serverRunningVC animated:YES];
+    NSLog(@"%@", self.navigationController);
+    AppDelegate *appdegate = [[AppDelegate alloc]init];
+//    self.navigationController = (UINavigationController *)appdegate.window.rootViewController.navigationController;
+//    [self.navigationController pushViewController:serverRunningVC animated:YES];
+    [(UINavigationController *)appdegate.window.rootViewController.navigationController pushViewController:serverRunningVC animated:YES];
 }
 
 - (void)serverStopped:(Server *)server {

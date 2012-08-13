@@ -23,9 +23,6 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <segue destination="2" kind="push" id="2j6-A4-qiQ"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -46,6 +43,7 @@
                     </navigationBar>
                     <connections>
                         <segue destination="c6N-c9-XnG" kind="relationship" relationship="rootViewController" id="UYk-TP-tax"/>
+                        <segue destination="2" kind="push" id="gd2-tc-MOn"/>
                     </connections>
                 </navigationController>
             </objects>
@@ -73,7 +71,7 @@
                     <navigationItem key="navigationItem" id="fr8-5b-K4t"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="388" y="286"/>
+            <point key="canvasLocation" x="317" y="353"/>
         </scene>
     </scenes>
     <classes>
