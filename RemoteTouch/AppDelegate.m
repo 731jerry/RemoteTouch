@@ -7,15 +7,79 @@
 //
 
 #import "AppDelegate.h"
+#import "ServerBrowserTableViewController.h"
+#import "ServerRunningViewController.h"
 
 @implementation AppDelegate
+
+@synthesize window;
+@synthesize navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSString *type = @"TestingProtocol";
+    _server = [[Server alloc] initWithProtocol:type];
+    _server.delegate = self;
+    NSError *error = nil;
+    if(![_server start:&error]) {
+        NSLog(@"error = %@", error);
+    }
+    serverBrowserVC.server = _server;
+	
+	[[navigationController navigationBar] setTintColor:[UIColor grayColor]];
+    
+	// Configure and show the window
+	[window addSubview:[navigationController view]];
+	[window makeKeyAndVisible];
+    
     return YES;
 }
-							
+			
+#pragma mark Server Delegate Methods
+
+- (void)serverRemoteConnectionComplete:(Server *)server {
+    NSLog(@"Server Started");
+    // this is called when the remote side finishes joining with the socket as
+    // notification that the other side has made its connection with this side
+    serverRunningVC.server = server;
+    [self.navigationController pushViewController:serverRunningVC animated:YES];
+}
+
+- (void)serverStopped:(Server *)server {
+    NSLog(@"Server stopped");
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)server:(Server *)server didNotStart:(NSDictionary *)errorDict {
+    NSLog(@"Server did not start %@", errorDict);
+}
+
+- (void)server:(Server *)server didAcceptData:(NSData *)data {
+    NSLog(@"Server did accept data %@", data);
+    NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    if(nil != message || [message length] > 0) {
+        serverRunningVC.message = message;
+    } else {
+        serverRunningVC.message = @"no data received";
+    }
+}
+
+- (void)server:(Server *)server lostConnection:(NSDictionary *)errorDict {
+    NSLog(@"Server lost connection %@", errorDict);
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)serviceAdded:(NSNetService *)service moreComing:(BOOL)more {
+    [serverBrowserVC addService:service moreComing:more];
+}
+
+- (void)serviceRemoved:(NSNetService *)service moreComing:(BOOL)more {
+    [serverBrowserVC removeService:service moreComing:more];
+}
+
+#pragma mark -
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 Jerry Zhu. All rights reserved.
 //
 
+
+
 #import "ServerBrowserTableViewController.h"
-#import "ServerRunningViewController.h"
-#import "AppDelegate.h"
+
 @interface ServerBrowserTableViewController()
 @property(nonatomic, retain) NSMutableArray *services;
-
 @end
 
 @implementation ServerBrowserTableViewController
@@ -35,17 +35,7 @@
      [alertTest show];
      [alertTest autorelease];*/
 	
-	NSString *type = @"TestingProtocol";
-    _server = [[Server alloc] initWithProtocol:type];
-    _server.delegate = self;
-    NSError *error = nil;
-    if(![_server start:&error]) {
-        NSLog(@"error = %@", error);
-    }
-    else{
-        NSLog(@"server started");
-    }
-    self.server = _server;
+	
 }
 
 
@@ -76,21 +66,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     self.services = nil;
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    
-//    /*
-//     When a row is selected, the segue creates the detail view controller as the destination.
-//     Set the detail view controller's detail item to the item associated with the selected row.
-//     */
-//    if ([[segue identifier] isEqualToString:@"ShowSelectedPlay"]) {
-//        
-////        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
-//        serverRunningVC = [segue destinationViewController];
-//        
-//    }
-//}
-
-
 - (NSMutableArray *)services {
     if(nil == _services) {
         self.services = [NSMutableArray array];
@@ -112,53 +87,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     }
 }
 
-#pragma mark Server Delegate Methods
-
-- (void)serverRemoteConnectionComplete:(Server *)server {
-    NSLog(@"Server Started");
-    // this is called when the remote side finishes joining with the socket as
-    // notification that the other side has made its connection with this side
-    serverRunningVC.server = server;
-    NSLog(@"%@", self.navigationController);
-    AppDelegate *appdegate = [[AppDelegate alloc]init];
-//    self.navigationController = (UINavigationController *)appdegate.window.rootViewController.navigationController;
-//    [self.navigationController pushViewController:serverRunningVC animated:YES];
-    [(UINavigationController *)appdegate.window.rootViewController.navigationController pushViewController:serverRunningVC animated:YES];
-}
-
-- (void)serverStopped:(Server *)server {
-    NSLog(@"Server stopped");
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)server:(Server *)server didNotStart:(NSDictionary *)errorDict {
-    NSLog(@"Server did not start %@", errorDict);
-}
-
-- (void)server:(Server *)server didAcceptData:(NSData *)data {
-    NSLog(@"Server did accept data %@", data);
-    NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    if(nil != message || [message length] > 0) {
-        serverRunningVC.message = message;
-    } else {
-        serverRunningVC.message = @"no data received";
-    }
-}
-
-- (void)server:(Server *)server lostConnection:(NSDictionary *)errorDict {
-    NSLog(@"Server lost connection %@", errorDict);
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)serviceAdded:(NSNetService *)service moreComing:(BOOL)more {
-    [self addService:service moreComing:more];
-}
-
-- (void)serviceRemoved:(NSNetService *)service moreComing:(BOOL)more {
-    [self removeService:service moreComing:more];
-}
-
-#pragma mark -
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -179,7 +107,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] ;
     }
     
     cell.text = [[self.services objectAtIndex:indexPath.row] name];

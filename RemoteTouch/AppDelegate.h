@@ -7,9 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Server.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class ServerRunningViewController;
+@class ServerBrowserTableViewController;
 
-@property (strong, nonatomic) UIWindow *window;
+@interface AppDelegate : UIResponder <UIApplicationDelegate, ServerDelegate> {
+    Server *_server;
+    UIWindow *window;
+    UINavigationController *navigationController;
+    IBOutlet ServerBrowserTableViewController *serverBrowserVC;
+    IBOutlet ServerRunningViewController *serverRunningVC;
+}
+
+@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+
 
 @end
