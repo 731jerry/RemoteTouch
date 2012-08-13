@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D920953115D9460E0071A566 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D920953015D9460E0071A566 /* UIKit.framework */; };
+		D920953315D9460E0071A566 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D920953215D9460E0071A566 /* Foundation.framework */; };
+		D920953515D9460E0071A566 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D920953415D9460E0071A566 /* CoreGraphics.framework */; };
+		D920953B15D9460E0071A566 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D920953915D9460E0071A566 /* InfoPlist.strings */; };
+		D920953D15D9460E0071A566 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D920953C15D9460E0071A566 /* main.m */; };
+		D920954115D9460E0071A566 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D920954015D9460E0071A566 /* AppDelegate.m */; };
+		D920954415D9460E0071A566 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D920954215D9460E0071A566 /* MainStoryboard.storyboard */; };
+		D920954715D9460E0071A566 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D920954615D9460E0071A566 /* ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D920952C15D9460E0071A566 /* RemoteTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D920953015D9460E0071A566 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D920953215D9460E0071A566 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D920953415D9460E0071A566 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D920953815D9460E0071A566 /* RemoteTouch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RemoteTouch-Info.plist"; sourceTree = "<group>"; };
+		D920953A15D9460E0071A566 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D920953C15D9460E0071A566 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D920953E15D9460E0071A566 /* RemoteTouch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RemoteTouch-Prefix.pch"; sourceTree = "<group>"; };
+		D920953F15D9460E0071A566 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D920954015D9460E0071A566 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D920954315D9460E0071A566 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		D920954515D9460E0071A566 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D920954615D9460E0071A566 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D920952915D9460E0071A566 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D920953115D9460E0071A566 /* UIKit.framework in Frameworks */,
+				D920953315D9460E0071A566 /* Foundation.framework in Frameworks */,
+				D920953515D9460E0071A566 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D920952115D9460E0071A566 = {
+			isa = PBXGroup;
+			children = (
+				D920953615D9460E0071A566 /* RemoteTouch */,
+				D920952F15D9460E0071A566 /* Frameworks */,
+				D920952D15D9460E0071A566 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D920952D15D9460E0071A566 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D920952C15D9460E0071A566 /* RemoteTouch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D920952F15D9460E0071A566 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D920953015D9460E0071A566 /* UIKit.framework */,
+				D920953215D9460E0071A566 /* Foundation.framework */,
+				D920953415D9460E0071A566 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D920953615D9460E0071A566 /* RemoteTouch */ = {
+			isa = PBXGroup;
+			children = (
+				D920953F15D9460E0071A566 /* AppDelegate.h */,
+				D920954015D9460E0071A566 /* AppDelegate.m */,
+				D920954215D9460E0071A566 /* MainStoryboard.storyboard */,
+				D920954515D9460E0071A566 /* ViewController.h */,
+				D920954615D9460E0071A566 /* ViewController.m */,
+				D920953715D9460E0071A566 /* Supporting Files */,
+			);
+			path = RemoteTouch;
+			sourceTree = "<group>";
+		};
+		D920953715D9460E0071A566 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D920953815D9460E0071A566 /* RemoteTouch-Info.plist */,
+				D920953915D9460E0071A566 /* InfoPlist.strings */,
+				D920953C15D9460E0071A566 /* main.m */,
+				D920953E15D9460E0071A566 /* RemoteTouch-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D920952B15D9460E0071A566 /* RemoteTouch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D920954A15D9460E0071A566 /* Build configuration list for PBXNativeTarget "RemoteTouch" */;
+			buildPhases = (
+				D920952815D9460E0071A566 /* Sources */,
+				D920952915D9460E0071A566 /* Frameworks */,
+				D920952A15D9460E0071A566 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RemoteTouch;
+			productName = RemoteTouch;
+			productReference = D920952C15D9460E0071A566 /* RemoteTouch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D920952315D9460E0071A566 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Jerry Zhu";
+			};
+			buildConfigurationList = D920952615D9460E0071A566 /* Build configuration list for PBXProject "RemoteTouch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D920952115D9460E0071A566;
+			productRefGroup = D920952D15D9460E0071A566 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D920952B15D9460E0071A566 /* RemoteTouch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D920952A15D9460E0071A566 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D920953B15D9460E0071A566 /* InfoPlist.strings in Resources */,
+				D920954415D9460E0071A566 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D920952815D9460E0071A566 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D920953D15D9460E0071A566 /* main.m in Sources */,
+				D920954115D9460E0071A566 /* AppDelegate.m in Sources */,
+				D920954715D9460E0071A566 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D920953915D9460E0071A566 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D920953A15D9460E0071A566 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D920954215D9460E0071A566 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D920954315D9460E0071A566 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D920954815D9460E0071A566 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D920954915D9460E0071A566 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D920954B15D9460E0071A566 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RemoteTouch/RemoteTouch-Prefix.pch";
+				INFOPLIST_FILE = "RemoteTouch/RemoteTouch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D920954C15D9460E0071A566 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RemoteTouch/RemoteTouch-Prefix.pch";
+				INFOPLIST_FILE = "RemoteTouch/RemoteTouch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D920952615D9460E0071A566 /* Build configuration list for PBXProject "RemoteTouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D920954815D9460E0071A566 /* Debug */,
+				D920954915D9460E0071A566 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D920954A15D9460E0071A566 /* Build configuration list for PBXNativeTarget "RemoteTouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D920954B15D9460E0071A566 /* Debug */,
+				D920954C15D9460E0071A566 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D920952315D9460E0071A566 /* Project object */;
+}
