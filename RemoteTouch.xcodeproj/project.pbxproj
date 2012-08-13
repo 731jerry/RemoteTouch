@@ -15,6 +15,7 @@
 		D920954115D9460E0071A566 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D920954015D9460E0071A566 /* AppDelegate.m */; };
 		D920954415D9460E0071A566 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D920954215D9460E0071A566 /* MainStoryboard.storyboard */; };
 		D920954715D9460E0071A566 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D920954615D9460E0071A566 /* ViewController.m */; };
+		D997FFB715D9468200EF2EDD /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = D997FFB615D9468200EF2EDD /* Server.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		D920954315D9460E0071A566 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D920954515D9460E0071A566 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D920954615D9460E0071A566 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D997FFB515D9468200EF2EDD /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		D997FFB615D9468200EF2EDD /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 		D920953615D9460E0071A566 /* RemoteTouch */ = {
 			isa = PBXGroup;
 			children = (
+				D997FFB515D9468200EF2EDD /* Server.h */,
+				D997FFB615D9468200EF2EDD /* Server.m */,
 				D920953F15D9460E0071A566 /* AppDelegate.h */,
 				D920954015D9460E0071A566 /* AppDelegate.m */,
 				D920954215D9460E0071A566 /* MainStoryboard.storyboard */,
@@ -108,6 +113,7 @@
 				D920952815D9460E0071A566 /* Sources */,
 				D920952915D9460E0071A566 /* Frameworks */,
 				D920952A15D9460E0071A566 /* Resources */,
+				D997FFBD15D946A700EF2EDD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -156,6 +162,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D997FFBD15D946A700EF2EDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D920952815D9460E0071A566 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -164,6 +186,7 @@
 				D920953D15D9460E0071A566 /* main.m in Sources */,
 				D920954115D9460E0071A566 /* AppDelegate.m in Sources */,
 				D920954715D9460E0071A566 /* ViewController.m in Sources */,
+				D997FFB715D9468200EF2EDD /* Server.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +264,7 @@
 		D920954B15D9460E0071A566 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RemoteTouch/RemoteTouch-Prefix.pch";
 				INFOPLIST_FILE = "RemoteTouch/RemoteTouch-Info.plist";
@@ -252,6 +276,7 @@
 		D920954C15D9460E0071A566 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RemoteTouch/RemoteTouch-Prefix.pch";
 				INFOPLIST_FILE = "RemoteTouch/RemoteTouch-Info.plist";
@@ -279,6 +304,7 @@
 				D920954C15D9460E0071A566 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
