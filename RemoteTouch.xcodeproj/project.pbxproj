@@ -14,8 +14,9 @@
 		D920953D15D9460E0071A566 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D920953C15D9460E0071A566 /* main.m */; };
 		D920954115D9460E0071A566 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D920954015D9460E0071A566 /* AppDelegate.m */; };
 		D920954415D9460E0071A566 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D920954215D9460E0071A566 /* MainStoryboard.storyboard */; };
-		D920954715D9460E0071A566 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D920954615D9460E0071A566 /* ViewController.m */; };
+		D920954715D9460E0071A566 /* ServerBrowserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D920954615D9460E0071A566 /* ServerBrowserTableViewController.m */; };
 		D997FFB715D9468200EF2EDD /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = D997FFB615D9468200EF2EDD /* Server.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D997FFC015D9472100EF2EDD /* ServerRunningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D997FFBE15D9472100EF2EDD /* ServerRunningViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +31,12 @@
 		D920953F15D9460E0071A566 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D920954015D9460E0071A566 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D920954315D9460E0071A566 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		D920954515D9460E0071A566 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D920954615D9460E0071A566 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D920954515D9460E0071A566 /* ServerBrowserTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerBrowserTableViewController.h; sourceTree = "<group>"; };
+		D920954615D9460E0071A566 /* ServerBrowserTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerBrowserTableViewController.m; sourceTree = "<group>"; };
 		D997FFB515D9468200EF2EDD /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		D997FFB615D9468200EF2EDD /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
+		D997FFBE15D9472100EF2EDD /* ServerRunningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRunningViewController.m; sourceTree = "<group>"; };
+		D997FFBF15D9472100EF2EDD /* ServerRunningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRunningViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,13 +83,15 @@
 		D920953615D9460E0071A566 /* RemoteTouch */ = {
 			isa = PBXGroup;
 			children = (
+				D997FFBE15D9472100EF2EDD /* ServerRunningViewController.m */,
+				D997FFBF15D9472100EF2EDD /* ServerRunningViewController.h */,
 				D997FFB515D9468200EF2EDD /* Server.h */,
 				D997FFB615D9468200EF2EDD /* Server.m */,
 				D920953F15D9460E0071A566 /* AppDelegate.h */,
 				D920954015D9460E0071A566 /* AppDelegate.m */,
 				D920954215D9460E0071A566 /* MainStoryboard.storyboard */,
-				D920954515D9460E0071A566 /* ViewController.h */,
-				D920954615D9460E0071A566 /* ViewController.m */,
+				D920954515D9460E0071A566 /* ServerBrowserTableViewController.h */,
+				D920954615D9460E0071A566 /* ServerBrowserTableViewController.m */,
 				D920953715D9460E0071A566 /* Supporting Files */,
 			);
 			path = RemoteTouch;
@@ -185,8 +190,9 @@
 			files = (
 				D920953D15D9460E0071A566 /* main.m in Sources */,
 				D920954115D9460E0071A566 /* AppDelegate.m in Sources */,
-				D920954715D9460E0071A566 /* ViewController.m in Sources */,
+				D920954715D9460E0071A566 /* ServerBrowserTableViewController.m in Sources */,
 				D997FFB715D9468200EF2EDD /* Server.m in Sources */,
+				D997FFC015D9472100EF2EDD /* ServerRunningViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
