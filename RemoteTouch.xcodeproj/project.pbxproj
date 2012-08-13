@@ -90,14 +90,14 @@
 				D997FFCB15D94C3400EF2EDD /* MainWindow.xib */,
 				D997FFCC15D94C3400EF2EDD /* ServerBrowserView.xib */,
 				D997FFCD15D94C3400EF2EDD /* ServerRunningView.xib */,
-				D997FFBF15D9472100EF2EDD /* ServerRunningViewController.h */,
-				D997FFBE15D9472100EF2EDD /* ServerRunningViewController.m */,
 				D997FFB515D9468200EF2EDD /* Server.h */,
 				D997FFB615D9468200EF2EDD /* Server.m */,
 				D920953F15D9460E0071A566 /* AppDelegate.h */,
 				D920954015D9460E0071A566 /* AppDelegate.m */,
 				D920954515D9460E0071A566 /* ServerBrowserTableViewController.h */,
 				D920954615D9460E0071A566 /* ServerBrowserTableViewController.m */,
+				D997FFBF15D9472100EF2EDD /* ServerRunningViewController.h */,
+				D997FFBE15D9472100EF2EDD /* ServerRunningViewController.m */,
 				D920953715D9460E0071A566 /* Supporting Files */,
 			);
 			path = RemoteTouch;

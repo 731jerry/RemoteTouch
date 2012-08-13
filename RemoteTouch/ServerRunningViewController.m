@@ -14,6 +14,41 @@
 @synthesize message = _message;
 @synthesize server = _server;
 
+#pragma mark -
+#pragma mark view
+- (void) viewDidLoad{
+    
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+        
+        //This pops up when the user starts the app and tells them to download the MacRemote desktop tool
+        
+        UIAlertView *alertTest = [[UIAlertView alloc] initWithTitle:@"exit" message:@"Are you sure to disconnect the server" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:nil];
+        
+        [alertTest addButtonWithTitle:@"Okey"];
+        
+        [alertTest show];
+        //     [alertTest autorelease];*/
+    NSString *type = @"TestingProtocol";
+    _server = [[Server alloc] initWithProtocol:type];
+    //_server.delegate = self;
+//    NSError *error = nil;
+    [_server stop];
+        
+    NSLog(@"server stoped");
+}
+
+- (void) viewDidDisappear:(BOOL)animated{
+
+}
+
+
+#pragma mark -
 - (IBAction)switchAction:(id)sender {
 	
 	if (segments.selectedSegmentIndex == 0) {

@@ -29,13 +29,23 @@
 	
 	[[navigationController navigationBar] setTintColor:[UIColor grayColor]];
     
+    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:nil action:@selector(doSomething)];
+    navigationController.navigationItem.backBarButtonItem = backBarButtonItem;
+    
+    
 	// Configure and show the window
 	[window addSubview:[navigationController view]];
 	[window makeKeyAndVisible];
     
     return YES;
 }
-			
+-(void) doSomething
+{
+    //Do your custom behaviour here..
+    
+    //Go back to the previous viewcontroller
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark Server Delegate Methods
 
 - (void)serverRemoteConnectionComplete:(Server *)server {
@@ -106,5 +116,6 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 @end

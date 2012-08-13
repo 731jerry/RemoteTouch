@@ -23,7 +23,7 @@
 	
     //This pops up when the user starts the app and tells them to download the MacRemote desktop tool
     
-	/*UIAlertView *alertTest = [[UIAlertView alloc]
+	UIAlertView *alertTest = [[UIAlertView alloc]
      initWithTitle:@"Download the mac application!"
      message:@"In order to control your mac, you must download our free tool."
      delegate:self
@@ -33,8 +33,17 @@
      [alertTest addButtonWithTitle:@"Show me!"];
      
      [alertTest show];
-     [alertTest autorelease];*/
-	
+//     [alertTest autorelease];*/
+//    NSString *type = @"TestingProtocol";
+//    _server = [[Server alloc] initWithProtocol:type];
+//    //_server.delegate = self;
+//    NSError *error = nil;
+//    if(![_server start:&error]) {
+//        NSLog(@"error = %@", error);
+//    }
+//    else{
+//        NSLog(@"server start in 1 view");
+//    }
 	
 }
 
@@ -117,6 +126,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.server connectToRemoteService:[self.services objectAtIndex:indexPath.row]];
+    NSLog(@"selected");
 }
 
 #pragma mark -
