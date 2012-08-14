@@ -23,17 +23,16 @@
 	
     //This pops up when the user starts the app and tells them to download the MacRemote desktop tool
     
-	UIAlertView *alertTest = [[UIAlertView alloc]
-     initWithTitle:@"Download the mac application!"
-     message:@"In order to control your mac, you must download our free tool."
-     delegate:self
-     cancelButtonTitle:@"Already did"
-     otherButtonTitles:nil];
-     
-     [alertTest addButtonWithTitle:@"Show me!"];
-     
-     [alertTest show];
-//     [alertTest autorelease];*/
+//     UIAlertView *alertTest = [[UIAlertView alloc]
+//     initWithTitle:@"Hello"
+//     message:@"No you can control your mac"
+//     delegate:self
+//     cancelButtonTitle:@"dismiss"
+//     otherButtonTitles:nil];
+//     [alertTest addButtonWithTitle:@"Okey"];
+//     [alertTest show];
+   
+    
 //    NSString *type = @"TestingProtocol";
 //    _server = [[Server alloc] initWithProtocol:type];
 //    //_server.delegate = self;
@@ -116,11 +115,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] ;
+//        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] ;
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.text = [[self.services objectAtIndex:indexPath.row] name];
+    cell.textLabel.text = [[self.services objectAtIndex:indexPath.row] name];
     
+    NSLog(@"cell text: %@",cell.textLabel.text);
     return cell;
 }
 

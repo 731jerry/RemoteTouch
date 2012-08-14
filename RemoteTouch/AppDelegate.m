@@ -15,49 +15,80 @@
 @synthesize window;
 @synthesize navigationController;
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    NSString *type = @"TestingProtocol";
-    _server = [[Server alloc] initWithProtocol:type];
-    _server.delegate = self;
-    NSError *error = nil;
-    if(![_server start:&error]) {
-        NSLog(@"error = %@", error);
-    }
-    serverBrowserVC.server = _server;
-	
-	[[navigationController navigationBar] setTintColor:[UIColor grayColor]];
+//    NSString *type = @"TestingProtocol";
+//    _server = [[Server alloc] initWithProtocol:type];
+//    _server.delegate = self;
+//    NSError *error = nil;
+//    if(![_server start:&error]) {
+//        NSLog(@"error = %@", error);
+//    }
+//    else{
+//        NSLog(@"no error successful");
+//    }
+//    serverBrowserVC.server = _server;
     
-    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:nil action:@selector(doSomething)];
-    navigationController.navigationItem.backBarButtonItem = backBarButtonItem;
+
     
     
+    
+//	[[navigationController navigationBar] setTintColor:[UIColor blackColor]];
+    
+//    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:nil action:@selector(doSomething)];
+//    navigationController.navigationItem.backBarButtonItem = backBarButtonItem;
 	// Configure and show the window
 	[window addSubview:[navigationController view]];
 	[window makeKeyAndVisible];
     
     return YES;
 }
--(void) doSomething
-{
-    //Do your custom behaviour here..
+
+- (IBAction)refreshServerList:(id)sender {
     
-    //Go back to the previous viewcontroller
-    [self.navigationController popViewControllerAnimated:YES];
+    NSString *type = @"TestingProtocol";
+    _server = [[Server alloc] initWithProtocol:type];
+    _server.delegate = self;
+    NSError *error = nil;
+    if(![_server start:&error]) {
+        NSLog(@"error = %@", error);
+        // set to red
+        [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
+        NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+    }
+    else {
+        // set to green
+        [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:90.0f/255.0f green:180.0f/255.0f blue:20.0f/255.0f alpha:0.5f]];
+        NSLog(@"successful");
+        NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+    }
+    
+    serverBrowserTVC.server = _server;
 }
+
+- (void) navigationBarToRed{
+    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
+    NSLog(@"navigationBarToRed >>> ");
+}
+
 #pragma mark Server Delegate Methods
 
 - (void)serverRemoteConnectionComplete:(Server *)server {
-    NSLog(@"Server Started");
+    NSLog(@"serverRemoteConnectionComplete >>> Server Started");
     // this is called when the remote side finishes joining with the socket as
     // notification that the other side has made its connection with this side
     serverRunningVC.server = server;
     [self.navigationController pushViewController:serverRunningVC animated:YES];
+//    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:90.0f/255.0f green:180.0f/255.0f blue:20.0f/255.0f alpha:1.0f]];
 }
 
 - (void)serverStopped:(Server *)server {
-    NSLog(@"Server stopped");
+    NSLog(@"serverStopped >>> Server stopped");
+    
+//    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -81,11 +112,11 @@
 }
 
 - (void)serviceAdded:(NSNetService *)service moreComing:(BOOL)more {
-    [serverBrowserVC addService:service moreComing:more];
+    [serverBrowserTVC addService:service moreComing:more];
 }
 
 - (void)serviceRemoved:(NSNetService *)service moreComing:(BOOL)more {
-    [serverBrowserVC removeService:service moreComing:more];
+    [serverBrowserTVC removeService:service moreComing:more];
 }
 
 #pragma mark -
@@ -116,6 +147,7 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 
 @end

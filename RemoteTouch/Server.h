@@ -81,5 +81,6 @@ typedef enum {
 
 @property(nonatomic, assign) id<ServerDelegate> delegate;
 @property(nonatomic, assign) uint8_t payloadSize; // how big of a buffer to send on
+@property (nonatomic, assign) BOOL isConnectSuccessfully;
 
 @end

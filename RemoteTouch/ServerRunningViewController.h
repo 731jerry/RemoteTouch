@@ -112,6 +112,8 @@
 
 @property(nonatomic, retain) NSString *message;
 @property(nonatomic, retain) Server *server;
+
+
 - (IBAction)switchAction:(id)sender;
 
 

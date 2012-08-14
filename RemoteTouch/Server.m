@@ -79,6 +79,8 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
 @synthesize localService = _localService;
 @synthesize currentlyResolvingService = _currentlyResolvingService;
 
+@synthesize isConnectSuccessfully = _isConnectSuccessfully;
+
 // defaults to protocol named 'Server' and using TCP
 - (id)init {
     self = [super init];
@@ -87,6 +89,7 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
                         protocol:@"_Server._tcp."
                             name:@""];
     }
+    self.isConnectSuccessfully = NO;
     return self;
 }
 
@@ -123,7 +126,7 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
 // if NO is returned there will be more detail in the error object
 // if you don't care about the error you can pass NULL
 - (BOOL)start:(NSError **)error {
-    BOOL successful = YES;
+    self.isConnectSuccessfully = YES;
     CFSocketContext socketCtxt = {0, self, NULL, NULL, NULL};
     _socket = CFSocketCreate(kCFAllocatorDefault, PF_INET, SOCK_STREAM, 
                              IPPROTO_TCP, 
@@ -138,10 +141,12 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
                       code:kServerNoSocketsAvailable
                       userInfo:nil];
         }
-        successful = NO;
+        self.isConnectSuccessfully = NO;
     }
 	
-    if(YES == successful) {
+    if(YES == self.isConnectSuccessfully) {
+// NSLog(@">>>if successful %@",_socket);//
+        
         // enable address reuse
         int yes = 1;
         setsockopt(CFSocketGetNative(_socket), 
@@ -169,6 +174,8 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
         addr4.sin_addr.s_addr = htonl(INADDR_ANY);
         NSData *address4 = [NSData dataWithBytes:&addr4 length:sizeof(addr4)];
         
+        NSLog(@">>> ");//
+                
         if (kCFSocketSuccess != CFSocketSetAddress(_socket, (CFDataRef)address4)) {
             if (error) *error = [[NSError alloc] 
                                  initWithDomain:ServerErrorDomain
@@ -176,7 +183,7 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
                                  userInfo:nil];
             if (_socket) CFRelease(_socket);
             _socket = NULL;
-            successful = NO;
+            self.isConnectSuccessfully = NO;
         } else {
             // now that the binding was successful, we get the port number 
             NSData *addr = [(NSData *)CFSocketCopyAddress(_socket) autorelease];
@@ -190,12 +197,12 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
             CFRelease(source4);
             
             if(![self _publishNetService]) {
-                successful = NO;
+                self.isConnectSuccessfully = NO;
             }
         }
 	}
 
-    return successful;
+    return self.isConnectSuccessfully;
 }
 
 // send data to the remote side of the server
@@ -203,7 +210,7 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
 // if NO is returned more detail will be in the error
 // if you don't care about the error you can pass NULL
 - (BOOL)sendData:(NSData *)data error:(NSError **)error {
-    BOOL successful = NO;
+    self.isConnectSuccessfully = NO;
     if(self.outputStreamHasSpace) {
         // push the whole gob of data onto the output stream
         // TODO: check to see if data is longer than the payloadSize
@@ -222,14 +229,15 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
                       code:kServerOutputStreamReachedCapacity
                       userInfo:[[self.outputStream streamError] userInfo]];
         } else {
-            successful = YES;
+            self.isConnectSuccessfully = YES;
         }
     } else {
         *error = [[NSError alloc] initWithDomain:ServerErrorDomain
                                             code:kServerNoSpaceOnOutputStream
                                         userInfo:nil];
     }
-    return successful;
+//    self.isConnectSuccessfully = successful;
+    return self.isConnectSuccessfully;
 }
 
 // call this when the user has selected the remote service they want to connect to
@@ -458,7 +466,7 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
 }
 
 - (BOOL)_publishNetService {
-    BOOL successful = NO;
+    self.isConnectSuccessfully = NO;
     self.netService = [[[NSNetService alloc] initWithDomain:self.domain
                                                        type:self.protocol
                                                        name:self.name
@@ -469,9 +477,10 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
                                    forMode:NSRunLoopCommonModes];
         [self.netService publish];
         self.netService.delegate = self;
-        successful = YES;
+        self.isConnectSuccessfully = YES;
     }
-    return successful;
+
+    return self.isConnectSuccessfully;
 }
 
 - (void)_stopStreams {

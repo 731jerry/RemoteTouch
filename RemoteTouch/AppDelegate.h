@@ -16,12 +16,15 @@
     Server *_server;
     UIWindow *window;
     UINavigationController *navigationController;
-    IBOutlet ServerBrowserTableViewController *serverBrowserVC;
+    IBOutlet ServerBrowserTableViewController *serverBrowserTVC;
     IBOutlet ServerRunningViewController *serverRunningVC;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
+- (void) navigationBarToRed;
+
+- (IBAction)refreshServerList:(id)sender;
 
 @end

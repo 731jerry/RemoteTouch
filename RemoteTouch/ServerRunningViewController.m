@@ -8,11 +8,19 @@
 
 #import "ServerRunningViewController.h"
 #import "Server.h"
+#import "AppDelegate.h"
 
-@implementation ServerRunningViewController
+
+@interface ServerRunningViewController()
+ 
+@end
+@implementation ServerRunningViewController{
+
+}
 
 @synthesize message = _message;
 @synthesize server = _server;
+
 
 #pragma mark -
 #pragma mark view
@@ -28,12 +36,12 @@
         
         //This pops up when the user starts the app and tells them to download the MacRemote desktop tool
         
-        UIAlertView *alertTest = [[UIAlertView alloc] initWithTitle:@"exit" message:@"Are you sure to disconnect the server" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:nil];
-        
-        [alertTest addButtonWithTitle:@"Okey"];
-        
-        [alertTest show];
-        //     [alertTest autorelease];*/
+//        UIAlertView *alertTest = [[UIAlertView alloc] initWithTitle:@"exit" message:@"Are you sure to disconnect the server" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:nil];
+//        
+//        [alertTest addButtonWithTitle:@"Okey"];
+//        
+//        [alertTest show];
+   
     NSString *type = @"TestingProtocol";
     _server = [[Server alloc] initWithProtocol:type];
     //_server.delegate = self;
@@ -41,10 +49,14 @@
     [_server stop];
         
     NSLog(@"server stoped");
-}
+    NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+} 
 
 - (void) viewDidDisappear:(BOOL)animated{
-
+    
+//    [[ad.navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
+    
+    NSLog(@"bar to red");
 }
 
 
