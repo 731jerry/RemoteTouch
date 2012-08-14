@@ -21,6 +21,7 @@
 @synthesize message = _message;
 @synthesize server = _server;
 
+@synthesize delegate = _delegate;
 
 #pragma mark -
 #pragma mark view
@@ -56,6 +57,7 @@
     
 //    [[ad.navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
     
+    [self.delegate navigationBarToRed:self];
     NSLog(@"bar to red");
 }
 

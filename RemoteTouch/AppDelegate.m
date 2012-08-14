@@ -18,35 +18,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-//    NSString *type = @"TestingProtocol";
-//    _server = [[Server alloc] initWithProtocol:type];
-//    _server.delegate = self;
-//    NSError *error = nil;
-//    if(![_server start:&error]) {
-//        NSLog(@"error = %@", error);
-//    }
-//    else{
-//        NSLog(@"no error successful");
-//    }
-//    serverBrowserVC.server = _server;
+    serverRunningVC.delegate = self;
     
-
+    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
     
-    
-    
-//	[[navigationController navigationBar] setTintColor:[UIColor blackColor]];
-    
-//    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:nil action:@selector(doSomething)];
-//    navigationController.navigationItem.backBarButtonItem = backBarButtonItem;
-	// Configure and show the window
 	[window addSubview:[navigationController view]];
 	[window makeKeyAndVisible];
+    
     
     return YES;
 }
 
-- (IBAction)refreshServerList:(id)sender {
+- (IBAction)refreshServerListButton:(id)sender {
     
     NSString *type = @"TestingProtocol";
     _server = [[Server alloc] initWithProtocol:type];
@@ -54,7 +37,7 @@
     NSError *error = nil;
     if(![_server start:&error]) {
         NSLog(@"error = %@", error);
-        // set to red
+        // set to red 
         [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
         NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
     }
@@ -68,7 +51,7 @@
     serverBrowserTVC.server = _server;
 }
 
-- (void) navigationBarToRed{
+- (void) navigationBarToRed:(ServerRunningViewController *) sender{
     [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
     NSLog(@"navigationBarToRed >>> ");
 }

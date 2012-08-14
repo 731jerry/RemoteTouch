@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class Server;
 
+@class ServerRunningViewController;
+@protocol ServerRunningViewControllerDelegate <NSObject>
+- (void) navigationBarToRed:(ServerRunningViewController *) sender;
+@end
+
+@class Server;
 @interface ServerRunningViewController : UIViewController{
 	
 	IBOutlet UISegmentedControl *segments;
@@ -113,6 +118,7 @@
 @property(nonatomic, retain) NSString *message;
 @property(nonatomic, retain) Server *server;
 
+@property (nonatomic, weak) id <ServerRunningViewControllerDelegate> delegate;
 
 - (IBAction)switchAction:(id)sender;
 

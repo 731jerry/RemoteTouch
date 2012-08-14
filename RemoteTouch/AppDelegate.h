@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Server.h"
+#import "ServerRunningViewController.h"
 
 @class ServerRunningViewController;
 @class ServerBrowserTableViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, ServerDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, ServerDelegate, ServerRunningViewControllerDelegate> {
     Server *_server;
     UIWindow *window;
     UINavigationController *navigationController;
@@ -23,8 +24,6 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
-- (void) navigationBarToRed;
-
-- (IBAction)refreshServerList:(id)sender;
+- (IBAction)refreshServerListButton:(id)sender;
 
 @end
