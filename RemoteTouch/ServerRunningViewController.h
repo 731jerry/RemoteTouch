@@ -104,6 +104,8 @@
 	IBOutlet UIButton *Capture;
 	IBOutlet UIImageView *captureImage;
 	
+    __weak IBOutlet UIButton *touchPad;
+    
 	NSString *_message;
 	Server *_server;
 	
@@ -211,5 +213,8 @@
 - (IBAction) DvdStop;
 
 - (IBAction) iSightCapture;
+
+
+- (IBAction)touchPad:(id)sender;
 
 @end

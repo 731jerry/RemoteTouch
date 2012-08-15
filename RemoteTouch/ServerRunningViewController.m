@@ -156,6 +156,7 @@
 		Capture.hidden = YES;
 		captureImage.hidden = YES;
 		
+        touchPad.hidden = YES;
 	}
 	
 	
@@ -251,6 +252,7 @@
 		Capture.hidden = YES;
 		captureImage.hidden = YES;
 		
+        touchPad.hidden = YES;
 	}
 	
 	
@@ -350,6 +352,8 @@
 		KeynoteBack.hidden = NO;
 		KeynoteNext.hidden=NO;
 		KeynoteClosePresentation.hidden = NO;
+        
+        touchPad.hidden = YES;
 	}
 	
 	if (segments.selectedSegmentIndex == 3) {
@@ -451,6 +455,8 @@
 		DvdPause.hidden = NO;
 		DvdResume.hidden = NO;
 		DvdStop.hidden = NO;
+        
+        touchPad.hidden = YES;
 	}
 	
 	if (segments.selectedSegmentIndex == 4) {
@@ -551,8 +557,68 @@
 		
 		Capture.hidden = NO;
 		captureImage.hidden = NO;
+        touchPad.hidden = YES;
 	}
-	
+	if(segments.selectedSegmentIndex == 5){
+        cmdA.hidden = YES;
+		cmdC.hidden = YES;
+		cmdZ.hidden = YES;
+		cmdV.hidden = YES;
+		cmdT.hidden = YES;
+		cmdH.hidden = YES;
+		cmdQ.hidden = YES;
+		up.hidden = YES;
+		down.hidden = YES;
+		left.hidden = YES;
+		right.hidden = YES;
+		Delete.hidden = YES;
+		Enter.hidden = YES;
+		
+		
+		
+		cmdA.hidden = YES;
+		cmdC.hidden = YES;
+		cmdZ.hidden = YES;
+		cmdV.hidden = YES;
+		cmdT.hidden = YES;
+		cmdH.hidden = YES;
+		cmdQ.hidden = YES;
+		up.hidden = YES;
+		down.hidden = YES;
+		left.hidden = YES;
+		right.hidden = YES;
+		Delete.hidden = YES;
+		Enter.hidden = YES;
+		shutDown.hidden = YES;
+		
+		iTunesPlay.hidden = YES;
+		iTunesPause.hidden = YES;
+		iTunesNext.hidden = YES;
+		iTunesPrevious.hidden = YES;
+		iTunesVolumeUp.hidden = YES;
+		iTunesVolumeDown.hidden = YES;
+		iTunesSearch.hidden = YES;
+		
+		vol1.hidden = YES;
+		vol2.hidden = YES;
+		vol3.hidden = YES;
+		vol4.hidden = YES;
+		
+		KeynoteBack.hidden = YES;
+		KeynoteNext.hidden=YES;
+		KeynoteClosePresentation.hidden = YES;
+		
+		DvdPlay.hidden = YES;
+		DvdPause.hidden = YES;
+		DvdResume.hidden = YES;
+		DvdStop.hidden = YES;
+		
+		Capture.hidden = YES;
+		captureImage.hidden = YES;
+        
+        touchPad.hidden = NO;
+    }
+    
 	else {
 		
 	}
@@ -1042,6 +1108,10 @@
 	[self.server sendData:data error:&error];
 }
 
+- (IBAction)touchPad:(id)sender {
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
@@ -1050,4 +1120,8 @@
 
 
 
+- (void)viewDidUnload {
+    touchPad = nil;
+    [super viewDidUnload];
+}
 @end
