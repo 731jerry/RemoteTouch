@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Server.h"
 
+@class ServerBrowserTableViewController;
+@protocol ServerBrowserTableViewControllerDelegate <NSObject>
+
+- (void) navigationBarToRed:(ServerBrowserTableViewController *) sender;
+
+@end
 
 @interface ServerBrowserTableViewController : UITableViewController {
     Server *_server;
@@ -19,5 +25,7 @@
 
 - (void)addService:(NSNetService *)service moreComing:(BOOL)moreComing;
 - (void)removeService:(NSNetService *)service moreComing:(BOOL)moreComing;
+
+@property (nonatomic, weak) id <ServerBrowserTableViewControllerDelegate> delegate;
 
 @end

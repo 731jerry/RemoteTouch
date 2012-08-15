@@ -8,8 +8,6 @@
 
 #import "ServerRunningViewController.h"
 #import "Server.h"
-#import "AppDelegate.h"
-
 
 @interface ServerRunningViewController()
  
@@ -21,7 +19,7 @@
 @synthesize message = _message;
 @synthesize server = _server;
 
-@synthesize delegate = _delegate;
+//@synthesize delegate = _delegate;
 
 #pragma mark -
 #pragma mark view
@@ -43,22 +41,24 @@
 //        
 //        [alertTest show];
    
-    NSString *type = @"TestingProtocol";
-    _server = [[Server alloc] initWithProtocol:type];
-    //_server.delegate = self;
-//    NSError *error = nil;
-    [_server stop];
-        
-    NSLog(@"server stoped");
-    NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+      
 } 
 
 - (void) viewDidDisappear:(BOOL)animated{
     
 //    [[ad.navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
     
-    [self.delegate navigationBarToRed:self];
-    NSLog(@"bar to red");
+//    [self.delegate navigationBarToRed:self];
+//    NSLog(@"bar to red");
+    
+//    NSString *type = @"TestingProtocol";
+//    _server = [[Server alloc] initWithProtocol:type];
+//    //_server.delegate = self;
+//    //    NSError *error = nil;
+//    [_server stop];
+    
+    NSLog(@"server stoped from server running viewcontroller");
+    NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
 }
 
 

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ServerBrowserTableViewController.h"
 #import "ServerRunningViewController.h"
+#import "TouchPadViewController.h"
 
 @implementation AppDelegate
 
@@ -18,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    serverRunningVC.delegate = self;
+    serverBrowserTVC.delegate = self;
     
     [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
     
@@ -51,7 +52,7 @@
     serverBrowserTVC.server = _server;
 }
 
-- (void) navigationBarToRed:(ServerRunningViewController *) sender{
+- (void) navigationBarToRed:(ServerBrowserTableViewController *) sender{
     [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
     NSLog(@"navigationBarToRed >>> ");
 }
@@ -63,14 +64,13 @@
     // this is called when the remote side finishes joining with the socket as
     // notification that the other side has made its connection with this side
     serverRunningVC.server = server;
-    [self.navigationController pushViewController:serverRunningVC animated:YES];
-//    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:90.0f/255.0f green:180.0f/255.0f blue:20.0f/255.0f alpha:1.0f]];
+//    [self.navigationController pushViewController:serverRunningVC animated:YES];
+    [self.navigationController pushViewController:(UIViewController *)controllingTBVC animated:YES];
+
 }
 
 - (void)serverStopped:(Server *)server {
     NSLog(@"serverStopped >>> Server stopped");
-    
-//    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

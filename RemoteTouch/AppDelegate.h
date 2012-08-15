@@ -9,16 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "Server.h"
 #import "ServerRunningViewController.h"
+#import "TouchPadViewController.h"
+#import "ServerBrowserTableViewController.h"
 
 @class ServerRunningViewController;
 @class ServerBrowserTableViewController;
+@class TouchPadViewController;
+@class ControllingTabBarViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, ServerDelegate, ServerRunningViewControllerDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, ServerDelegate, ServerBrowserTableViewControllerDelegate> {
     Server *_server;
     UIWindow *window;
     UINavigationController *navigationController;
     IBOutlet ServerBrowserTableViewController *serverBrowserTVC;
     IBOutlet ServerRunningViewController *serverRunningVC;
+    IBOutlet TouchPadViewController *touchpadVC;
+    IBOutlet ControllingTabBarViewController *controllingTBVC;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

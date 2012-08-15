@@ -18,6 +18,7 @@
 
 @synthesize services = _services;
 @synthesize server = _server;
+@synthesize delegate = _delegate;
 
 - (void) viewDidLoad {
 	
@@ -67,6 +68,27 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     self.title = @"Connection List";
     self.services = nil;
     [self.tableView reloadData];
+    
+    NSString *type = @"TestingProtocol";
+    _server = [[Server alloc] initWithProtocol:type];
+    //_server.delegate = self;
+    //    NSError *error = nil;
+    [_server stop];
+    }
+
+- (void) viewDidAppear:(BOOL)animated{
+    
+    if (_server.isConnectSuccessfully == YES) {
+        
+        NSLog(@"_server.isConnectSuccessfully");
+        NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+    }
+    else {
+        NSLog(@"!_server.isConnectSuccessfully");
+        [self.delegate navigationBarToRed:self];
+        NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+    }
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1056</int>
-		<string key="IBDocument.SystemVersion">10H574</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1246</string>
-		<string key="IBDocument.AppKitVersion">1038.35</string>
+		<int key="IBDocument.SystemTarget">1296</int>
+		<string key="IBDocument.SystemVersion">12A269</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
+		<string key="IBDocument.AppKitVersion">1187</string>
+		<string key="IBDocument.HIToolboxVersion">624.00</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+			<string key="NS.object.0">1498</string>
+		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
+			<string>IBProxyObject</string>
 			<string>IBUIButton</string>
 			<string>IBUISegmentedControl</string>
 			<string>IBUIView</string>
-			<string>IBProxyObject</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 		</array>
-		<dictionary class="NSMutableDictionary" key="IBDocument.Metadata"/>
+		<object class="NSMutableDictionary" key="IBDocument.Metadata">
+			<string key="NS.key.0">PluginDependencyRecalculationVersion</string>
+			<integer value="1" key="NS.object.0"/>
+		</object>
 		<array class="NSMutableArray" key="IBDocument.RootObjects" id="1000">
 			<object class="IBProxyObject" id="372490531">
 				<string key="IBProxiedObjectIdentifier">IBFilesOwner</string>
@@ -40,11 +48,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<object class="NSFont" key="IBUIFont" id="132528411">
-							<string key="NSName">Helvetica-Bold</string>
-							<double key="NSSize">15</double>
-							<int key="NSfFlags">16</int>
-						</object>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Play</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="599740917">
@@ -59,6 +62,17 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="875877661">
+							<string key="name">Helvetica-Bold</string>
+							<string key="family">Helvetica</string>
+							<int key="traits">2</int>
+							<double key="pointSize">15</double>
+						</object>
+						<object class="NSFont" key="IBUIFont" id="132528411">
+							<string key="NSName">Helvetica-Bold</string>
+							<double key="NSSize">15</double>
+							<int key="NSfFlags">16</int>
+						</object>
 					</object>
 					<object class="IBUIButton" id="461966592">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -72,7 +86,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Pause</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -81,6 +94,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="779569563">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -94,7 +109,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Next</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -103,6 +117,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="257627411">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -116,7 +132,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Back</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -125,6 +140,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="296017780">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -138,7 +155,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">+</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -147,6 +163,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="735488734">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -160,7 +178,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">-</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -169,11 +186,13 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUISegmentedControl" id="775320874">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{12, 20}, {287, 30}}</string>
+						<string key="NSFrame">{{9, 20}, {296, 30}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="229587200"/>
@@ -233,7 +252,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">System Volume 1</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -242,6 +260,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="99434449">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -254,7 +274,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">System Volume 2</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -263,6 +282,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="340532905">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -275,7 +296,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">System Volume 3</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -284,6 +304,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="258398628">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -296,7 +318,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">System Volume 4</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -305,6 +326,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="136391565">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -317,7 +340,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">cmd A</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -326,6 +348,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="272258602">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -338,7 +362,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">cmd C</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -347,6 +370,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="880580290">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -359,7 +384,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">cmd V</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -368,6 +392,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="1055025421">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -380,7 +406,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">cmd H</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -389,6 +414,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="900177924">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -401,7 +428,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">cmd T</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -410,6 +436,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="259631105">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -422,7 +450,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">cmd Q</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -431,6 +458,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="1067288305">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -443,7 +472,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">cmd Z</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -452,6 +480,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="864095351">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -464,7 +494,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Up</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -473,6 +502,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="642787584">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -485,7 +516,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Down</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -494,6 +524,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="64296522">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -506,7 +538,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Right</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -515,6 +546,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="535757690">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -527,7 +560,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Delete</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -536,6 +568,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="1007319554">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -548,7 +582,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Enter</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -557,6 +590,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="132124044">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -569,7 +604,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Shut Down</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -578,6 +612,8 @@
 							<bytes key="NSRGB">MSAwLjAyMTY5OTIxMTIxIDAAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="848746172">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -590,7 +626,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Left</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -599,6 +634,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="561953220">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -611,7 +648,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Back</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -620,6 +656,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="475872043">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -632,7 +670,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Next</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -641,6 +678,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="229587200">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -653,7 +692,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Play</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -662,6 +700,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="566143750">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -674,7 +714,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Pause</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -683,6 +722,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="145475450">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -695,7 +736,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Resume</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -704,6 +744,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="842676251">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -716,7 +758,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="132528411"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Stop</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -725,6 +766,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<reference key="IBUIFontDescription" ref="875877661"/>
+						<reference key="IBUIFont" ref="132528411"/>
 					</object>
 					<object class="IBUIButton" id="544006414">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -737,11 +780,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica-Bold</string>
-							<double key="NSSize">48</double>
-							<int key="NSfFlags">16</int>
-						</object>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Capture</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
@@ -750,6 +788,17 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="600979104"/>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<string key="name">Helvetica-Bold</string>
+							<string key="family">Helvetica</string>
+							<int key="traits">2</int>
+							<double key="pointSize">48</double>
+						</object>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica-Bold</string>
+							<double key="NSSize">48</double>
+							<int key="NSfFlags">16</int>
+						</object>
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 436}</string>
@@ -760,21 +809,50 @@
 					<int key="NSColorSpace">10</int>
 					<object class="NSImage" key="NSImage">
 						<int key="NSImageFlags">549453824</int>
-						<string key="NSSize">{84, 1}</string>
+						<string key="NSSize">{512, 1}</string>
 						<array class="NSMutableArray" key="NSReps">
 							<array>
 								<integer value="0"/>
 								<object class="NSBitmapImageRep">
 									<object class="NSData" key="NSTIFFRepresentation">
-										<bytes key="NS.bytes">TU0AKgAAAVjFzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/
+										<bytes key="NS.bytes">TU0AKgAACAjFzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/
 y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/
 xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/
 xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/
 xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/
-xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P8ADQEAAAMAAAABAFQAAAEB
-AAMAAAABAAEAAAECAAMAAAAEAAAB+gEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAERAAQAAAABAAAACAES
-AAMAAAABAAEAAAEVAAMAAAABAAQAAAEWAAMAAAABAAEAAAEXAAQAAAABAAABUAEcAAMAAAABAAEAAAFS
-AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
+xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/
+xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/
+y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/
+y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/
+xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/
+xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/
+xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/
+xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/
+xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/
+y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/
+y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/
+xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/
+xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/
+xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/
+xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/
+xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/
+y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/
+y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/
+xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/
+xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/
+xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/
+xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/
+xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/
+y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/
+y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/
+xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/
+xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/
+xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/
+xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/
+xczS/8vS2P/L0tj/xczU/wANAQAAAwAAAAECAAAAAQEAAwAAAAEAAQAAAQIAAwAAAAQAAAiqAQMAAwAA
+AAEAAQAAAQYAAwAAAAEAAgAAAREABAAAAAEAAAAIARIAAwAAAAEAAQAAARUAAwAAAAEABAAAARYAAwAA
+AAEAAQAAARcABAAAAAEAAAgAARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAQAAAiyAAAAAAAI
+AAgACAAIAAEAAQABAAE</bytes>
 									</object>
 								</object>
 							</array>
@@ -984,121 +1062,139 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<int key="connectionID">172</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">arrowD</string>
-						<reference key="source" ref="642787584"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">right</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="64296522"/>
 					</object>
-					<int key="connectionID">178</int>
+					<int key="connectionID">251</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">shutDown</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="132124044"/>
+					</object>
+					<int key="connectionID">263</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">KeynoteBack</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="561953220"/>
+					</object>
+					<int key="connectionID">272</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">KeynoteNext</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="475872043"/>
+					</object>
+					<int key="connectionID">274</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">DvdPause</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="566143750"/>
+					</object>
+					<int key="connectionID">282</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">DvdPlay</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="229587200"/>
+					</object>
+					<int key="connectionID">283</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">DvdResume</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="145475450"/>
+					</object>
+					<int key="connectionID">284</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">DvdStop</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="842676251"/>
+					</object>
+					<int key="connectionID">285</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">Capture</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="544006414"/>
+					</object>
+					<int key="connectionID">292</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">arrowL</string>
-						<reference key="source" ref="848746172"/>
+						<string key="label">iTunesPlay</string>
+						<reference key="source" ref="698239631"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">179</int>
+					<int key="connectionID">218</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">arrowR</string>
-						<reference key="source" ref="64296522"/>
+						<string key="label">iTunesPause</string>
+						<reference key="source" ref="461966592"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">180</int>
+					<int key="connectionID">217</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">arrowU</string>
-						<reference key="source" ref="864095351"/>
+						<string key="label">iTunesNext</string>
+						<reference key="source" ref="779569563"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">181</int>
+					<int key="connectionID">216</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">cmdA</string>
-						<reference key="source" ref="136391565"/>
+						<string key="label">iTunesPrevious</string>
+						<reference key="source" ref="257627411"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">186</int>
+					<int key="connectionID">219</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">cmdC</string>
-						<reference key="source" ref="272258602"/>
+						<string key="label">iTunesVolumeUp</string>
+						<reference key="source" ref="296017780"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">187</int>
+					<int key="connectionID">222</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">cmdH</string>
-						<reference key="source" ref="1055025421"/>
+						<string key="label">iTunesVolumeDown</string>
+						<reference key="source" ref="735488734"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">188</int>
+					<int key="connectionID">221</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">cmdQ</string>
-						<reference key="source" ref="259631105"/>
+						<string key="label">switchAction:</string>
+						<reference key="source" ref="775320874"/>
 						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
+						<int key="IBEventType">13</int>
 					</object>
-					<int key="connectionID">189</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">cmdT</string>
-						<reference key="source" ref="900177924"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">190</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">cmdV</string>
-						<reference key="source" ref="880580290"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">191</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">cmdZ</string>
-						<reference key="source" ref="1067288305"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">192</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Delete</string>
-						<reference key="source" ref="535757690"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">196</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Enter</string>
-						<reference key="source" ref="1007319554"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">201</int>
+					<int key="connectionID">239</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1138,82 +1234,120 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">iTunesNext</string>
-						<reference key="source" ref="779569563"/>
+						<string key="label">cmdA</string>
+						<reference key="source" ref="136391565"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">216</int>
+					<int key="connectionID">186</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">iTunesPause</string>
-						<reference key="source" ref="461966592"/>
+						<string key="label">cmdC</string>
+						<reference key="source" ref="272258602"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">217</int>
+					<int key="connectionID">187</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">iTunesPlay</string>
-						<reference key="source" ref="698239631"/>
+						<string key="label">cmdV</string>
+						<reference key="source" ref="880580290"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">218</int>
+					<int key="connectionID">191</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">iTunesPrevious</string>
-						<reference key="source" ref="257627411"/>
+						<string key="label">cmdH</string>
+						<reference key="source" ref="1055025421"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">219</int>
+					<int key="connectionID">188</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">iTunesVolumeDown</string>
-						<reference key="source" ref="735488734"/>
+						<string key="label">cmdT</string>
+						<reference key="source" ref="900177924"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">221</int>
+					<int key="connectionID">190</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">iTunesVolumeUp</string>
-						<reference key="source" ref="296017780"/>
+						<string key="label">cmdQ</string>
+						<reference key="source" ref="259631105"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">222</int>
+					<int key="connectionID">189</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">switchAction:</string>
-						<reference key="source" ref="775320874"/>
+						<string key="label">cmdZ</string>
+						<reference key="source" ref="1067288305"/>
 						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">13</int>
+						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">239</int>
+					<int key="connectionID">192</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">right</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="64296522"/>
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">arrowU</string>
+						<reference key="source" ref="864095351"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">251</int>
+					<int key="connectionID">181</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">shutDown</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="132124044"/>
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">arrowD</string>
+						<reference key="source" ref="642787584"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">263</int>
+					<int key="connectionID">178</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">arrowR</string>
+						<reference key="source" ref="64296522"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">180</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">Delete</string>
+						<reference key="source" ref="535757690"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">196</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">Enter</string>
+						<reference key="source" ref="1007319554"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">201</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">arrowL</string>
+						<reference key="source" ref="848746172"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">179</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1223,22 +1357,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">264</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">KeynoteBack</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="561953220"/>
-					</object>
-					<int key="connectionID">272</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">KeynoteNext</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="475872043"/>
-					</object>
-					<int key="connectionID">274</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1259,36 +1377,13 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<int key="connectionID">277</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">DvdPause</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="566143750"/>
-					</object>
-					<int key="connectionID">282</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
+					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">DvdPlay</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="229587200"/>
+						<reference key="source" ref="229587200"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">283</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">DvdResume</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="145475450"/>
-					</object>
-					<int key="connectionID">284</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">DvdStop</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="842676251"/>
-					</object>
-					<int key="connectionID">285</int>
+					<int key="connectionID">287</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1298,15 +1393,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">286</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">DvdPlay</string>
-						<reference key="source" ref="229587200"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">287</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1325,14 +1411,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">289</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">Capture</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="544006414"/>
-					</object>
-					<int key="connectionID">292</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1566,137 +1644,42 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
 				<string key="-1.CustomClassName">ServerRunningViewController</string>
+				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
-				<string key="1.IBEditorWindowLastContentRect">{{260, 282}, {320, 436}}</string>
+				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="261.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="261.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">AUNCAABDlAAAA</bytes>
-				</object>
 				<string key="268.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="268.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">AUFQAABCggAAA</bytes>
-				</object>
 				<string key="269.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="269.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABBkAAAw4EAAA</bytes>
-				</object>
 				<string key="278.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="278.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">AUFQAABCggAAA</bytes>
-				</object>
 				<string key="279.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="279.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">AUFAAABDAQAAA</bytes>
-				</object>
 				<string key="280.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="280.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">AUFQAABDPgAAA</bytes>
-				</object>
 				<string key="281.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="281.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABBkAAAw3kAAA</bytes>
-				</object>
 				<string key="290.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="290.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABBQAAAw2QAAA</bytes>
-				</object>
 				<string key="34.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="34.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABByAAAwuoAAA</bytes>
-				</object>
 				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="35.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABC0gAAwuoAAA</bytes>
-				</object>
 				<string key="36.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="36.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABC0gAAwyIAAA</bytes>
-				</object>
 				<string key="37.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="37.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABByAAAwyIAAA</bytes>
-				</object>
 				<string key="38.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="38.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABDdAAAwyIAAA</bytes>
-				</object>
 				<string key="39.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="39.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABDOQAAwyIAAA</bytes>
-				</object>
 				<string key="40.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="40.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABBkAAAwgAAAA</bytes>
-				</object>
 				<string key="41.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="41.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABCnAAAw1kAAA</bytes>
-				</object>
 				<string key="42.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="42.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABCnAAAw4MAAA</bytes>
-				</object>
 				<string key="43.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="43.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABCnAAAw5mAAA</bytes>
-				</object>
 				<string key="44.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="44.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABCnAAAw7AAAA</bytes>
-				</object>
 				<string key="45.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="45.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABCNAAAwqQAAA</bytes>
-				</object>
 				<string key="46.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="46.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABC+gAAwqQAAA</bytes>
-				</object>
 				<string key="47.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="47.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABDTQAAwqQAAA</bytes>
-				</object>
 				<string key="48.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="48.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABCNAAAwv4AAA</bytes>
-				</object>
 				<string key="49.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="49.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABC+gAAwv4AAA</bytes>
-				</object>
 				<string key="50.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="50.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABDTQAAwv4AAA</bytes>
-				</object>
 				<string key="51.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="51.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABC+gAAwywAAA</bytes>
-				</object>
 				<string key="52.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="52.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABCaAAAw2sAAA</bytes>
-				</object>
 				<string key="53.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="53.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABCaAAAw6uAAA</bytes>
-				</object>
 				<string key="54.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="54.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABC0gAAw5AAAA</bytes>
-				</object>
 				<string key="55.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="55.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABDRwAAw4YAAA</bytes>
-				</object>
 				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="56.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">AUNCAABDlAAAA</bytes>
-				</object>
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<object class="NSAffineTransform" key="57.IBViewBoundsToFrameTransform">
-					<bytes key="NSTransformStruct">P4AAAL+AAABAoAAAw5AAAA</bytes>
-				</object>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
@@ -1704,12 +1687,444 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 			<nil key="sourceID"/>
 			<int key="maxID">296</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">ServerRunningViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="Delete">id</string>
+						<string key="DvdPause">id</string>
+						<string key="DvdPlay">id</string>
+						<string key="DvdResume">id</string>
+						<string key="DvdStop">id</string>
+						<string key="Enter">id</string>
+						<string key="FinderVol1">id</string>
+						<string key="FinderVol2">id</string>
+						<string key="FinderVol3">id</string>
+						<string key="FinderVol4">id</string>
+						<string key="KeynoteBack">id</string>
+						<string key="KeynoteClosePresentation">id</string>
+						<string key="KeynoteNext">id</string>
+						<string key="Prefs">id</string>
+						<string key="Safari">id</string>
+						<string key="ShutDown">id</string>
+						<string key="Terminal">id</string>
+						<string key="arrowD">id</string>
+						<string key="arrowL">id</string>
+						<string key="arrowR">id</string>
+						<string key="arrowU">id</string>
+						<string key="cmdA">id</string>
+						<string key="cmdC">id</string>
+						<string key="cmdH">id</string>
+						<string key="cmdQ">id</string>
+						<string key="cmdT">id</string>
+						<string key="cmdV">id</string>
+						<string key="cmdZ">id</string>
+						<string key="iChat">id</string>
+						<string key="iMovie">id</string>
+						<string key="iPhoto">id</string>
+						<string key="iSightCapture">id</string>
+						<string key="iTunes">id</string>
+						<string key="iTunesNext">id</string>
+						<string key="iTunesPause">id</string>
+						<string key="iTunesPlay">id</string>
+						<string key="iTunesPrevious">id</string>
+						<string key="iTunesVolumeDown">id</string>
+						<string key="iTunesVolumeUp">id</string>
+						<string key="switchAction:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="Delete">
+							<string key="name">Delete</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="DvdPause">
+							<string key="name">DvdPause</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="DvdPlay">
+							<string key="name">DvdPlay</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="DvdResume">
+							<string key="name">DvdResume</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="DvdStop">
+							<string key="name">DvdStop</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="Enter">
+							<string key="name">Enter</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="FinderVol1">
+							<string key="name">FinderVol1</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="FinderVol2">
+							<string key="name">FinderVol2</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="FinderVol3">
+							<string key="name">FinderVol3</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="FinderVol4">
+							<string key="name">FinderVol4</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="KeynoteBack">
+							<string key="name">KeynoteBack</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="KeynoteClosePresentation">
+							<string key="name">KeynoteClosePresentation</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="KeynoteNext">
+							<string key="name">KeynoteNext</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="Prefs">
+							<string key="name">Prefs</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="Safari">
+							<string key="name">Safari</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="ShutDown">
+							<string key="name">ShutDown</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="Terminal">
+							<string key="name">Terminal</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="arrowD">
+							<string key="name">arrowD</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="arrowL">
+							<string key="name">arrowL</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="arrowR">
+							<string key="name">arrowR</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="arrowU">
+							<string key="name">arrowU</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="cmdA">
+							<string key="name">cmdA</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="cmdC">
+							<string key="name">cmdC</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="cmdH">
+							<string key="name">cmdH</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="cmdQ">
+							<string key="name">cmdQ</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="cmdT">
+							<string key="name">cmdT</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="cmdV">
+							<string key="name">cmdV</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="cmdZ">
+							<string key="name">cmdZ</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="iChat">
+							<string key="name">iChat</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="iMovie">
+							<string key="name">iMovie</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="iPhoto">
+							<string key="name">iPhoto</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="iSightCapture">
+							<string key="name">iSightCapture</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="iTunes">
+							<string key="name">iTunes</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="iTunesNext">
+							<string key="name">iTunesNext</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="iTunesPause">
+							<string key="name">iTunesPause</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="iTunesPlay">
+							<string key="name">iTunesPlay</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="iTunesPrevious">
+							<string key="name">iTunesPrevious</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="iTunesVolumeDown">
+							<string key="name">iTunesVolumeDown</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="iTunesVolumeUp">
+							<string key="name">iTunesVolumeUp</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="switchAction:">
+							<string key="name">switchAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="Capture">UIButton</string>
+						<string key="Delete">UIButton</string>
+						<string key="DvdPause">UIButton</string>
+						<string key="DvdPlay">UIButton</string>
+						<string key="DvdResume">UIButton</string>
+						<string key="DvdStop">UIButton</string>
+						<string key="Enter">UIButton</string>
+						<string key="KeynoteBack">UIButton</string>
+						<string key="KeynoteClosePresentation">UIButton</string>
+						<string key="KeynoteNext">UIButton</string>
+						<string key="Prefs">UIButton</string>
+						<string key="Safari">UIButton</string>
+						<string key="Terminal">UIButton</string>
+						<string key="captureImage">UIImageView</string>
+						<string key="cmdA">UIButton</string>
+						<string key="cmdC">UIButton</string>
+						<string key="cmdH">UIButton</string>
+						<string key="cmdQ">UIButton</string>
+						<string key="cmdT">UIButton</string>
+						<string key="cmdV">UIButton</string>
+						<string key="cmdZ">UIButton</string>
+						<string key="down">UIButton</string>
+						<string key="iChat">UIButton</string>
+						<string key="iMovie">UIButton</string>
+						<string key="iPhoto">UIButton</string>
+						<string key="iTunes">UIButton</string>
+						<string key="iTunesNext">UIButton</string>
+						<string key="iTunesPause">UIButton</string>
+						<string key="iTunesPlay">UIButton</string>
+						<string key="iTunesPrevious">UIButton</string>
+						<string key="iTunesSearch">UIButton</string>
+						<string key="iTunesVolumeDown">UIButton</string>
+						<string key="iTunesVolumeUp">UIButton</string>
+						<string key="left">UIButton</string>
+						<string key="right">UIButton</string>
+						<string key="segments">UISegmentedControl</string>
+						<string key="shutDown">UIButton</string>
+						<string key="up">UIButton</string>
+						<string key="vol1">UIButton</string>
+						<string key="vol2">UIButton</string>
+						<string key="vol3">UIButton</string>
+						<string key="vol4">UIButton</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="Capture">
+							<string key="name">Capture</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="Delete">
+							<string key="name">Delete</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="DvdPause">
+							<string key="name">DvdPause</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="DvdPlay">
+							<string key="name">DvdPlay</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="DvdResume">
+							<string key="name">DvdResume</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="DvdStop">
+							<string key="name">DvdStop</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="Enter">
+							<string key="name">Enter</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="KeynoteBack">
+							<string key="name">KeynoteBack</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="KeynoteClosePresentation">
+							<string key="name">KeynoteClosePresentation</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="KeynoteNext">
+							<string key="name">KeynoteNext</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="Prefs">
+							<string key="name">Prefs</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="Safari">
+							<string key="name">Safari</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="Terminal">
+							<string key="name">Terminal</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="captureImage">
+							<string key="name">captureImage</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="cmdA">
+							<string key="name">cmdA</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="cmdC">
+							<string key="name">cmdC</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="cmdH">
+							<string key="name">cmdH</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="cmdQ">
+							<string key="name">cmdQ</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="cmdT">
+							<string key="name">cmdT</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="cmdV">
+							<string key="name">cmdV</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="cmdZ">
+							<string key="name">cmdZ</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="down">
+							<string key="name">down</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iChat">
+							<string key="name">iChat</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iMovie">
+							<string key="name">iMovie</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iPhoto">
+							<string key="name">iPhoto</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iTunes">
+							<string key="name">iTunes</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iTunesNext">
+							<string key="name">iTunesNext</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iTunesPause">
+							<string key="name">iTunesPause</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iTunesPlay">
+							<string key="name">iTunesPlay</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iTunesPrevious">
+							<string key="name">iTunesPrevious</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iTunesSearch">
+							<string key="name">iTunesSearch</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iTunesVolumeDown">
+							<string key="name">iTunesVolumeDown</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iTunesVolumeUp">
+							<string key="name">iTunesVolumeUp</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="left">
+							<string key="name">left</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="right">
+							<string key="name">right</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="segments">
+							<string key="name">segments</string>
+							<string key="candidateClassName">UISegmentedControl</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="shutDown">
+							<string key="name">shutDown</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="up">
+							<string key="name">up</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="vol1">
+							<string key="name">vol1</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="vol2">
+							<string key="name">vol2</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="vol3">
+							<string key="name">vol3</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="vol4">
+							<string key="name">vol4</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ServerRunningViewController.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="1296" key="NS.object.0"/>
+		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<string key="IBDocument.LastKnownRelativeProjectPath">NetworkingTesting.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">106</string>
+		<string key="IBCocoaTouchPluginVersion">1498</string>
 	</data>
 </archive>
