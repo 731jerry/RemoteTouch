@@ -9,20 +9,36 @@
 #import "AppDelegate.h"
 #import "ServerBrowserTableViewController.h"
 #import "ServerRunningViewController.h"
-#import "TouchPadViewController.h"
 
 @implementation AppDelegate
 
 @synthesize window;
 @synthesize navigationController;
+/*
+ NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+ 
+// not started gray
+[[navigationController navigationBar] setTintColor:[UIColor grayColor]];
+ 
+  // ready to be connect set to orange
+ [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0f]];
+ 
+// disconnected set to red
+[[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
 
+ 
+// connected set to green
+[[navigationController navigationBar] setTintColor:[UIColor colorWithRed:90.0f/255.0f green:180.0f/255.0f blue:20.0f/255.0f alpha:0.5f]];
+
+
+*/
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     serverBrowserTVC.delegate = self;
     
-    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
-    
+//    // not started gray 
+//    [[navigationController navigationBar] setTintColor:[UIColor grayColor]];    
 	[window addSubview:[navigationController view]];
 	[window makeKeyAndVisible];
     
@@ -32,19 +48,20 @@
 
 - (IBAction)refreshServerListButton:(id)sender {
     
+    [_server stop];
     NSString *type = @"TestingProtocol";
     _server = [[Server alloc] initWithProtocol:type];
     _server.delegate = self;
     NSError *error = nil;
     if(![_server start:&error]) {
         NSLog(@"error = %@", error);
-        // set to red 
-        [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
+        // not started gray
+        [[navigationController navigationBar] setTintColor:[UIColor grayColor]];
         NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
     }
     else {
-        // set to green
-        [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:90.0f/255.0f green:180.0f/255.0f blue:20.0f/255.0f alpha:0.5f]];
+        // ready to be connect set to orange
+        [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0f]];
         NSLog(@"successful");
         NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
     }
@@ -64,15 +81,17 @@
     // this is called when the remote side finishes joining with the socket as
     // notification that the other side has made its connection with this side
     serverRunningVC.server = server;
-//    [self.navigationController pushViewController:serverRunningVC animated:YES];
-    [self.navigationController pushViewController:(UIViewController *)controllingTBVC animated:YES];
-
+    [self.navigationController pushViewController:(UIViewController *)serverRunningVC animated:YES];
+    // connected set to green
+    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:90.0f/255.0f green:180.0f/255.0f blue:20.0f/255.0f alpha:0.5f]];
+    NSLog(@"serverRunningVC.server >>> %@",serverRunningVC.server);
 }
 
 - (void)serverStopped:(Server *)server {
     NSLog(@"serverStopped >>> Server stopped");
-    
     [self.navigationController popViewControllerAnimated:YES];
+    // disconnected set to red
+    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
 }
 
 - (void)server:(Server *)server didNotStart:(NSDictionary *)errorDict {

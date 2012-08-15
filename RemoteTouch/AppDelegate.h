@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Server.h"
 #import "ServerRunningViewController.h"
-#import "TouchPadViewController.h"
 #import "ServerBrowserTableViewController.h"
 
 @class ServerRunningViewController;
@@ -23,8 +22,6 @@
     UINavigationController *navigationController;
     IBOutlet ServerBrowserTableViewController *serverBrowserTVC;
     IBOutlet ServerRunningViewController *serverRunningVC;
-    IBOutlet TouchPadViewController *touchpadVC;
-    IBOutlet ControllingTabBarViewController *controllingTBVC;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

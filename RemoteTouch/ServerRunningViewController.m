@@ -563,6 +563,7 @@
 	NSString *messageText = [NSString stringWithFormat:@"iTunesPlay"];
 	NSData *data = [messageText dataUsingEncoding:NSUTF8StringEncoding];
 	NSError *error = nil;
+    NSLog(@"iTunesPlay self.server >>> %@",self.server);
 	[self.server sendData:data error:&error];
 }
 

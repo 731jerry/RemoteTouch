@@ -251,6 +251,7 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
     self.currentlyResolvingService = selectedService;
     self.currentlyResolvingService.delegate = self;
     [self.currentlyResolvingService resolveWithTimeout:0.0];
+    NSLog(@"server connectToRemoteService >>> %@",self.currentlyResolvingService);
 }
 
 // stop the server

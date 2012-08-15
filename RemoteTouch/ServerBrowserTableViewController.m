@@ -74,7 +74,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     //_server.delegate = self;
     //    NSError *error = nil;
     [_server stop];
-    }
+}
 
 - (void) viewDidAppear:(BOOL)animated{
     
@@ -143,12 +143,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     cell.textLabel.text = [[self.services objectAtIndex:indexPath.row] name];
     
-    NSLog(@"cell text: %@",cell.textLabel.text);
+//    NSLog(@"cell text: %@",cell.textLabel.text);
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.server connectToRemoteService:[self.services objectAtIndex:indexPath.row]];
+    NSLog(@"didSelectRowAtIndexPath self.services >>> %@", [self.services objectAtIndex:indexPath.row]);
     NSLog(@"selected");
 }
 

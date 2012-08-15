@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D91F0D8715DB100B006234B6 /* TouchPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91F0D8515DB100B006234B6 /* TouchPadViewController.m */; };
-		D91F0D8815DB100B006234B6 /* TouchPadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91F0D8615DB100B006234B6 /* TouchPadViewController.xib */; };
-		D91F0D9515DB147C006234B6 /* ControllingTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91F0D9315DB147C006234B6 /* ControllingTabBarViewController.m */; };
-		D91F0D9615DB147C006234B6 /* ControllingTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91F0D9415DB147C006234B6 /* ControllingTabBarViewController.xib */; };
 		D920953115D9460E0071A566 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D920953015D9460E0071A566 /* UIKit.framework */; };
 		D920953315D9460E0071A566 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D920953215D9460E0071A566 /* Foundation.framework */; };
 		D920953515D9460E0071A566 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D920953415D9460E0071A566 /* CoreGraphics.framework */; };
@@ -26,12 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D91F0D8415DB100A006234B6 /* TouchPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPadViewController.h; sourceTree = "<group>"; };
-		D91F0D8515DB100B006234B6 /* TouchPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchPadViewController.m; sourceTree = "<group>"; };
-		D91F0D8615DB100B006234B6 /* TouchPadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TouchPadViewController.xib; sourceTree = "<group>"; };
-		D91F0D9215DB147B006234B6 /* ControllingTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllingTabBarViewController.h; sourceTree = "<group>"; };
-		D91F0D9315DB147C006234B6 /* ControllingTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllingTabBarViewController.m; sourceTree = "<group>"; };
-		D91F0D9415DB147C006234B6 /* ControllingTabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControllingTabBarViewController.xib; sourceTree = "<group>"; };
 		D920952C15D9460E0071A566 /* RemoteTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D920953015D9460E0071A566 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D920953215D9460E0071A566 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,21 +89,15 @@
 			children = (
 				D997FFCB15D94C3400EF2EDD /* MainWindow.xib */,
 				D997FFCC15D94C3400EF2EDD /* ServerBrowserView.xib */,
-				D91F0D9415DB147C006234B6 /* ControllingTabBarViewController.xib */,
 				D997FFCD15D94C3400EF2EDD /* ServerRunningView.xib */,
-				D91F0D8615DB100B006234B6 /* TouchPadViewController.xib */,
 				D997FFB515D9468200EF2EDD /* Server.h */,
 				D997FFB615D9468200EF2EDD /* Server.m */,
 				D920953F15D9460E0071A566 /* AppDelegate.h */,
 				D920954015D9460E0071A566 /* AppDelegate.m */,
-				D91F0D9215DB147B006234B6 /* ControllingTabBarViewController.h */,
-				D91F0D9315DB147C006234B6 /* ControllingTabBarViewController.m */,
 				D920954515D9460E0071A566 /* ServerBrowserTableViewController.h */,
 				D920954615D9460E0071A566 /* ServerBrowserTableViewController.m */,
 				D997FFBF15D9472100EF2EDD /* ServerRunningViewController.h */,
 				D997FFBE15D9472100EF2EDD /* ServerRunningViewController.m */,
-				D91F0D8415DB100A006234B6 /* TouchPadViewController.h */,
-				D91F0D8515DB100B006234B6 /* TouchPadViewController.m */,
 				D920953715D9460E0071A566 /* Supporting Files */,
 			);
 			path = RemoteTouch;
@@ -186,8 +170,6 @@
 				D997FFCE15D94C3400EF2EDD /* MainWindow.xib in Resources */,
 				D997FFCF15D94C3400EF2EDD /* ServerBrowserView.xib in Resources */,
 				D997FFD015D94C3400EF2EDD /* ServerRunningView.xib in Resources */,
-				D91F0D8815DB100B006234B6 /* TouchPadViewController.xib in Resources */,
-				D91F0D9615DB147C006234B6 /* ControllingTabBarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,8 +201,6 @@
 				D920954715D9460E0071A566 /* ServerBrowserTableViewController.m in Sources */,
 				D997FFB715D9468200EF2EDD /* Server.m in Sources */,
 				D997FFC015D9472100EF2EDD /* ServerRunningViewController.m in Sources */,
-				D91F0D8715DB100B006234B6 /* TouchPadViewController.m in Sources */,
-				D91F0D9515DB147C006234B6 /* ControllingTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
