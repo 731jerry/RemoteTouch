@@ -104,7 +104,8 @@
 	IBOutlet UIButton *Capture;
 	IBOutlet UIImageView *captureImage;
 	
-    __weak IBOutlet UIButton *touchPad;
+    
+    __weak IBOutlet UIView *touchView;
     
 	NSString *_message;
 	Server *_server;
@@ -215,6 +216,5 @@
 - (IBAction) iSightCapture;
 
 
-- (IBAction)touchPad:(id)sender;
 
 @end

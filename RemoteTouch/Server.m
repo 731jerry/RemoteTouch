@@ -210,7 +210,7 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
 // if NO is returned more detail will be in the error
 // if you don't care about the error you can pass NULL
 - (BOOL)sendData:(NSData *)data error:(NSError **)error {
-    NSLog(@"send data");
+//    NSLog(@"send data");
     self.isConnectSuccessfully = NO;
     if(self.outputStreamHasSpace) {
         // push the whole gob of data onto the output stream

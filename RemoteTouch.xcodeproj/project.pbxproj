@@ -57,6 +57,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D91F0DB015DB4516006234B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D997FFCB15D94C3400EF2EDD /* MainWindow.xib */,
+				D997FFCC15D94C3400EF2EDD /* ServerBrowserView.xib */,
+				D997FFCD15D94C3400EF2EDD /* ServerRunningView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D91F0DB215DB452D006234B6 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				D997FFB515D9468200EF2EDD /* Server.h */,
+				D997FFB615D9468200EF2EDD /* Server.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
 		D920952115D9460E0071A566 = {
 			isa = PBXGroup;
 			children = (
@@ -87,11 +106,8 @@
 		D920953615D9460E0071A566 /* RemoteTouch */ = {
 			isa = PBXGroup;
 			children = (
-				D997FFCB15D94C3400EF2EDD /* MainWindow.xib */,
-				D997FFCC15D94C3400EF2EDD /* ServerBrowserView.xib */,
-				D997FFCD15D94C3400EF2EDD /* ServerRunningView.xib */,
-				D997FFB515D9468200EF2EDD /* Server.h */,
-				D997FFB615D9468200EF2EDD /* Server.m */,
+				D91F0DB215DB452D006234B6 /* Server */,
+				D91F0DB015DB4516006234B6 /* Views */,
 				D920953F15D9460E0071A566 /* AppDelegate.h */,
 				D920954015D9460E0071A566 /* AppDelegate.m */,
 				D920954515D9460E0071A566 /* ServerBrowserTableViewController.h */,

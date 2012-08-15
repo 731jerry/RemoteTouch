@@ -31,6 +31,9 @@
     
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+    touchView.hidden = YES;
+}
 - (void) viewWillDisappear:(BOOL)animated{
         
         //This pops up when the user starts the app and tells them to download the MacRemote desktop tool
@@ -63,6 +66,39 @@
 
 
 #pragma mark -
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	// get touch event
+	UITouch *touch = [[event allTouches] anyObject];
+	CGPoint touchLocation = [touch locationInView:touchView];
+	
+//	NSLog(@"touch location >>> %f, %f", touchLocation.x, touchLocation.y);
+    if (touchLocation.x < 0.0f) {
+        touchLocation.x = 0.0f;
+    } else if (touchLocation.x > 295.0f){
+        touchLocation.x = 295.0f;
+    }
+    if (touchLocation.y <0.0f){
+        touchLocation.y = 0.0f;
+    } else if (touchLocation.y > 345.0f){
+        touchLocation.y = 345.0f;
+    }
+    
+    [self touchPad:touchLocation];
+}
+
+- (void) touchPad:(CGPoint) touchLocation{
+    NSString *locationX = [NSString stringWithFormat:@"%f", touchLocation.x];
+    NSString *locationY = [NSString stringWithFormat:@"%f", touchLocation.y];
+    NSString *location = [[locationX stringByAppendingString:@"+"] stringByAppendingString:locationY];
+    
+    NSString *messageText = location;
+	NSData *data = [messageText dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",location);
+	[self.server sendData:data error:&error];
+}
+
 - (IBAction)switchAction:(id)sender {
 	
 	if (segments.selectedSegmentIndex == 0) {
@@ -156,7 +192,7 @@
 		Capture.hidden = YES;
 		captureImage.hidden = YES;
 		
-        touchPad.hidden = YES;
+        touchView.hidden = YES;
 	}
 	
 	
@@ -252,7 +288,7 @@
 		Capture.hidden = YES;
 		captureImage.hidden = YES;
 		
-        touchPad.hidden = YES;
+        touchView.hidden = YES;
 	}
 	
 	
@@ -353,7 +389,7 @@
 		KeynoteNext.hidden=NO;
 		KeynoteClosePresentation.hidden = NO;
         
-        touchPad.hidden = YES;
+        touchView.hidden = YES;
 	}
 	
 	if (segments.selectedSegmentIndex == 3) {
@@ -456,7 +492,7 @@
 		DvdResume.hidden = NO;
 		DvdStop.hidden = NO;
         
-        touchPad.hidden = YES;
+        touchView.hidden = YES;
 	}
 	
 	if (segments.selectedSegmentIndex == 4) {
@@ -557,7 +593,7 @@
 		
 		Capture.hidden = NO;
 		captureImage.hidden = NO;
-        touchPad.hidden = YES;
+        touchView.hidden = YES;
 	}
 	if(segments.selectedSegmentIndex == 5){
         cmdA.hidden = YES;
@@ -616,7 +652,7 @@
 		Capture.hidden = YES;
 		captureImage.hidden = YES;
         
-        touchPad.hidden = NO;
+        touchView.hidden = NO;
     }
     
 	else {
@@ -1108,10 +1144,6 @@
 	[self.server sendData:data error:&error];
 }
 
-- (IBAction)touchPad:(id)sender {
-    
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
@@ -1121,7 +1153,7 @@
 
 
 - (void)viewDidUnload {
-    touchPad = nil;
+    touchView = nil;
     [super viewDidUnload];
 }
 @end
