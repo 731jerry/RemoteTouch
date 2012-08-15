@@ -70,8 +70,16 @@
 }
 
 - (void) navigationBarToRed:(ServerBrowserTableViewController *) sender{
+}
+
+- (void) navigationBarToBeDisconnected:(ServerBrowserTableViewController *) sender{
     [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
-    NSLog(@"navigationBarToRed >>> ");
+    NSLog(@"navigationBarToBeDisconnected >>> ");
+}
+- (void) navigationBarToBeReadyToConnceted:(ServerBrowserTableViewController *) sender{
+    // ready to be connect set to orange
+    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0f]];
+    NSLog(@"navigationBarToBeReadyToConnceted >>> ");
 }
 
 #pragma mark Server Delegate Methods

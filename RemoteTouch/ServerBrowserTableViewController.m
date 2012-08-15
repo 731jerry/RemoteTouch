@@ -85,8 +85,16 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     }
     else {
         NSLog(@"!_server.isConnectSuccessfully");
-        [self.delegate navigationBarToRed:self];
+        [self.delegate navigationBarToBeDisconnected:self];
         NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+    }
+    if (self.services == nil) {
+        [self.delegate navigationBarToBeDisconnected:self];
+        NSLog(@"services == nil");
+    }
+    else {
+        [self.delegate navigationBarToBeReadyToConnceted:self];
+        NSLog(@"services != nil");
     }
 
 }
@@ -124,7 +132,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Computers";
+    return @"Mac Computers";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

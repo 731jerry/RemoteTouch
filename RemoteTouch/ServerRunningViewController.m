@@ -60,6 +60,7 @@
 //    //    NSError *error = nil;
 //    [_server stop];
     
+    [_server stop];//
     NSLog(@"server stoped from server running viewcontroller");
     NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
 }

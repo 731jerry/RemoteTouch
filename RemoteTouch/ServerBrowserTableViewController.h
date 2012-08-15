@@ -12,8 +12,8 @@
 @class ServerBrowserTableViewController;
 @protocol ServerBrowserTableViewControllerDelegate <NSObject>
 
-- (void) navigationBarToRed:(ServerBrowserTableViewController *) sender;
-
+- (void) navigationBarToBeDisconnected:(ServerBrowserTableViewController *) sender;
+- (void) navigationBarToBeReadyToConnceted:(ServerBrowserTableViewController *) sender;
 @end
 
 @interface ServerBrowserTableViewController : UITableViewController {
