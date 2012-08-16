@@ -10,7 +10,9 @@
 #import "Server.h"
 
 @interface ServerRunningViewController()
- 
+
+@property (nonatomic) CGPoint touchBeginLocationForAvoidConflict;
+@property (nonatomic) CGPoint touchLastLocation;
 @end
 @implementation ServerRunningViewController{
 
@@ -19,12 +21,16 @@
 @synthesize message = _message;
 @synthesize server = _server;
 
+
+@synthesize touchBeginLocationForAvoidConflict = _touchBeginLocationForAvoidConflict;
+@synthesize touchLastLocation = _touchLastLocation;
+
 //@synthesize delegate = _delegate;
 
 #pragma mark -
 #pragma mark view
 - (void) viewDidLoad{
-    
+
 }
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -32,6 +38,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
+//    segments.selectedSegmentIndex = 0;
     touchView.hidden = YES;
 }
 - (void) viewWillDisappear:(BOOL)animated{
@@ -67,13 +74,26 @@
 
 
 #pragma mark -
+#pragma mark only for touch pad
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [touches anyObject];
+    self.touchBeginLocationForAvoidConflict = [touch locationInView:touchView];
+    self.touchLastLocation = [touch locationInView:touchView];
+}
+
+- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	// get touch event
-	UITouch *touch = [[event allTouches] anyObject];
+    // touch.tapCount means how many taps
+    // [touch count] means how many fingers
+//	UITouch *touch = [[event allTouches] anyObject];
+    UITouch *touch = [touches anyObject];
 	CGPoint touchLocation = [touch locationInView:touchView];
+    
 	
 //	NSLog(@"touch location >>> %f, %f", touchLocation.x, touchLocation.y);
+
+    
     if (touchLocation.x < 0.0f) {
         touchLocation.x = 0.0f;
     } else if (touchLocation.x > 295.0f){
@@ -85,20 +105,135 @@
         touchLocation.y = 345.0f;
     }
     
-    [self touchPad:touchLocation];
+    if ([touches count] < 2) {
+        NSLog(@"touch count == 1");
+//        NSLog(@"old locattion, %f %f", touchLocation.x, touchLocation.y);
+//        [NSThread sleepForTimeInterval:1.3];
+//        
+//        CGPoint touchNewLocation = [touch locationInView:touchView];
+//        NSLog(@"new locattion, %f %f", touchNewLocation.x, touchNewLocation.y);
+//        [self handleOneFingerMove:touchLocation];
+        
+        [self handleOneFingerMoveWithOffset:(touchLocation.x - self.touchLastLocation.x) :(touchLocation.y - self.touchLastLocation.y)];
+    }
+    if ([touches count] == 2){
+        NSLog(@"touch count == 2");
+        [self handleTwoMove:touchLocation];
+    }
+   
+    self.touchLastLocation = touchLocation;
 }
 
-- (void) touchPad:(CGPoint) touchLocation{
-    NSString *locationX = [NSString stringWithFormat:@"%f", touchLocation.x];
-    NSString *locationY = [NSString stringWithFormat:@"%f", touchLocation.y];
-    NSString *location = [[locationX stringByAppendingString:@"+"] stringByAppendingString:locationY];
+// move
+- (void) handleOneFingerMove:(CGPoint) touchLocation{
+    NSLog(@"handleOneFingerMove");
+    [self sendTouchLocation:touchLocation];
+}
+- (void) handleOneFingerMoveWithOffset:(CGFloat) offsetX :(CGFloat) offsetY{
+    NSLog(@"handleOneFingerMove with offset");
+    [self sendTouchLocationOffset:offsetX :offsetY];
+}
+// scrolling
+- (void) handleTwoMove:(CGPoint) touchLocation{
+    NSLog(@"handleTwoMove");
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [touches anyObject];
+    NSUInteger numTaps = [touch tapCount];
     
-    NSString *messageText = location;
-	NSData *data = [messageText dataUsingEncoding:NSUTF8StringEncoding];
+    float delay = 0.1;
+    
+    CGPoint touchEndedLocationForAvoidConflict = [touch locationInView:touchView];
+    
+    if ((self.touchBeginLocationForAvoidConflict.x == touchEndedLocationForAvoidConflict.x) && (self.touchBeginLocationForAvoidConflict.y == touchEndedLocationForAvoidConflict.y)) {
+//    if (touch.phase == UITouchPhaseMoved) {
+
+        NSLog(@"it is not a move, %d",touch.phase);
+        if ([touches count] < 2){
+            NSLog(@"touches ended");
+            if (numTaps < 2)
+            {
+                [self performSelector:@selector(handleOneFingerSingleTap) withObject:nil afterDelay:delay ];
+//              [self.nextResponder touchesEnded:touches withEvent:event];
+            }
+            else if(numTaps == 2)
+            {
+                [NSObject cancelPreviousPerformRequestsWithTarget:self];
+                [self performSelector:@selector(handleOneFingerDoubleTap) withObject:nil afterDelay:delay ];
+            }
+        } else if ([touches count] == 2){
+            if (numTaps < 2)
+            {
+                [self performSelector:@selector(handleTwoFingerSingleTap) withObject:nil afterDelay:delay ];
+            }
+        }
+    }
+}
+
+// left click
+-(void)handleOneFingerSingleTap
+{
+    NSLog(@"handleOneFingerSingleTap");
+    
+    NSString * messageFinal = @"OneFingerSingleTap";
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
 	NSError *error = nil;
-    NSLog(@"%@",location);
+    NSLog(@"%@",data);
 	[self.server sendData:data error:&error];
 }
+
+// double click
+-(void)handleOneFingerDoubleTap
+{
+    NSLog(@"handleOneFingerDoubleTap");
+    
+    NSString * messageFinal = @"OneFingerDoubleTap";
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",data);
+	[self.server sendData:data error:&error];
+}
+
+// right click
+- (void) handleTwoFingerSingleTap{
+    NSLog(@"handleTwoFingerSingleTap");
+    
+    NSString * messageFinal = @"TwoFingerSingleTap";
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",data);
+	[self.server sendData:data error:&error];
+}
+
+- (void) sendTouchLocation:(CGPoint) touchLocation{
+    NSString *locationXString = [NSString stringWithFormat:@"%f", touchLocation.x];
+    NSString *locationYString = [NSString stringWithFormat:@"%f", touchLocation.y];
+    NSString *location = [[locationXString stringByAppendingString:@"+"] stringByAppendingString:locationYString];
+    
+    NSString *messageText = location;
+    NSString * messageFinal = [@"Location:" stringByAppendingString:messageText];
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",data);
+	[self.server sendData:data error:&error];
+}
+
+- (void) sendTouchLocationOffset:(CGFloat) offsetX :(CGFloat) offsetY{
+    NSString *locationXString = [NSString stringWithFormat:@"%f", offsetX];
+    NSString *locationYString = [NSString stringWithFormat:@"%f", offsetY];
+    NSString *location = [[locationXString stringByAppendingString:@"+"] stringByAppendingString:locationYString];
+    
+    NSString *messageText = location;
+    NSString * messageFinal = [@"LocationOffset:" stringByAppendingString:messageText];
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",data);
+	[self.server sendData:data error:&error];
+}
+
+#pragma mark -
+#pragma mark actions 
 
 - (IBAction)switchAction:(id)sender {
 	
