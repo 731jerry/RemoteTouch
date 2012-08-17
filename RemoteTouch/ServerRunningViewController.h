@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class Server;
-@interface ServerRunningViewController : UIViewController{
+@interface ServerRunningViewController : UIViewController <UITextFieldDelegate>{
 	
+    BOOL hiddenKeyboard;
+//    UITextField *keyboardField;
+    __weak IBOutlet UITextField *keyboardField;
+    
 	IBOutlet UISegmentedControl *segments;
 	
 	//UI
@@ -94,12 +98,22 @@
 	
 	IBOutlet UIButton *KeynoteNext;
 	IBOutlet UIButton *KeynoteBack;
-	IBOutlet UIButton *KeynoteClosePresentation;
+    __weak IBOutlet UIButton *KeynoteExitPresentation;
+    __weak IBOutlet UIButton *KeynoteBeginPresentation;
 	
-	IBOutlet UIButton *DvdPlay;
-	IBOutlet UIButton *DvdPause;
-	IBOutlet UIButton *DvdResume;
-	IBOutlet UIButton *DvdStop;
+	
+    __weak IBOutlet UIButton *gamePlayUpButton;
+    __weak IBOutlet UIButton *gamePlayRightButton;
+    __weak IBOutlet UIButton *gamePlayDButton;
+    __weak IBOutlet UIButton *gamePlayBButton;
+    __weak IBOutlet UIButton *gamePlayAButton;
+    __weak IBOutlet UIButton *gamePlayCButton;
+    __weak IBOutlet UIButton *gamePlayLeftButton;
+    __weak IBOutlet UIButton *gamePlayDownButton;
+    
+    
+    __weak IBOutlet UIButton *showKeyboardButton;
+    
 	
 	IBOutlet UIButton *Capture;
 	IBOutlet UIImageView *captureImage;
@@ -205,6 +219,8 @@
 
 
 - (IBAction) KeynoteNext;
+- (IBAction)KeynoteExit;
+- (IBAction)KeynoteBegin;
 - (IBAction) KeynoteBack;
 - (IBAction) KeynoteClosePresentation;
 
@@ -213,8 +229,19 @@
 - (IBAction) DvdResume;
 - (IBAction) DvdStop;
 
+
+- (IBAction)gamePlayUpArrow;
+- (IBAction)gamePlayRightArrow;
+- (IBAction)gamePlayLeftArrow;
+- (IBAction)gamePlayDownArrow;
+- (IBAction)gamePlayA;
+- (IBAction)gamePlayB;
+- (IBAction)gamePlayC;
+- (IBAction)gamePlayD;
+
 - (IBAction) iSightCapture;
 
-
+- (IBAction)sendKeyboard:(id)sender;
+- (IBAction)ResponderDismissKeyboard: (id) sender ;
 
 @end

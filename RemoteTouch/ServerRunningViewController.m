@@ -11,8 +11,9 @@
 
 @interface ServerRunningViewController()
 
-@property (nonatomic) CGPoint touchBeginLocationForAvoidConflict;
 @property (nonatomic) CGPoint touchLastLocation;
+@property (nonatomic) CGFloat accumulatedDistanceForX;
+@property (nonatomic) CGFloat accumulatedDistanceForY;
 @end
 @implementation ServerRunningViewController{
 
@@ -20,9 +21,9 @@
 
 @synthesize message = _message;
 @synthesize server = _server;
+@synthesize accumulatedDistanceForX = _accumulatedDistanceForX;
+@synthesize accumulatedDistanceForY = _accumulatedDistanceForY;
 
-
-@synthesize touchBeginLocationForAvoidConflict = _touchBeginLocationForAvoidConflict;
 @synthesize touchLastLocation = _touchLastLocation;
 
 //@synthesize delegate = _delegate;
@@ -30,7 +31,12 @@
 #pragma mark -
 #pragma mark view
 - (void) viewDidLoad{
-
+    [touchView setUserInteractionEnabled:NO];
+    [self switchAction:self];
+    keyboardField.hidden = YES;
+    hiddenKeyboard = YES;
+    keyboardField.delegate = self;
+//    [keyboardField becomeFirstResponder];
 }
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -39,7 +45,7 @@
 
 - (void) viewWillAppear:(BOOL)animated{
 //    segments.selectedSegmentIndex = 0;
-    touchView.hidden = YES;
+//    touchView.hidden = YES;
 }
 - (void) viewWillDisappear:(BOOL)animated{
         
@@ -78,22 +84,46 @@
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *touch = [touches anyObject];
-    self.touchBeginLocationForAvoidConflict = [touch locationInView:touchView];
     self.touchLastLocation = [touch locationInView:touchView];
+    self.accumulatedDistanceForX = 0;
+    self.accumulatedDistanceForY = 0;
+    
+    NSUInteger numTaps = [touch tapCount];
+    
+    float delay = 0.1;
+        
+    if ([touches count] < 2){
+        NSLog(@">>> 1 touch");
+        if (numTaps < 2)
+        {
+            NSLog(@">>> 1 tap");
+            [self performSelector:@selector(handleOneFingerSingleTap) withObject:nil afterDelay:delay ];
+            // [self.nextResponder touchesEnded:touches withEvent:event];
+        }
+        else if(numTaps == 2)
+        {
+            NSLog(@">>> 2 tap");
+            [NSObject cancelPreviousPerformRequestsWithTarget:self];
+            [self performSelector:@selector(handleOneFingerDoubleTap) withObject:nil afterDelay:delay ];
+        }
+    } else if ([touches count] == 2){
+        NSLog(@">>> 2 touch");
+        if (numTaps < 2)
+        {
+            NSLog(@">>> 1 tap");
+            [self performSelector:@selector(handleTwoFingerSingleTap) withObject:nil afterDelay:delay ];
+        }
+    }
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	// get touch event
     // touch.tapCount means how many taps
     // [touch count] means how many fingers
-//	UITouch *touch = [[event allTouches] anyObject];
     UITouch *touch = [touches anyObject];
 	CGPoint touchLocation = [touch locationInView:touchView];
-    
-	
-//	NSLog(@"touch location >>> %f, %f", touchLocation.x, touchLocation.y);
+    CGPoint prevTouchLocation = [touch previousLocationInView:touchView];
 
-    
     if (touchLocation.x < 0.0f) {
         touchLocation.x = 0.0f;
     } else if (touchLocation.x > 295.0f){
@@ -107,18 +137,75 @@
     
     if ([touches count] < 2) {
         NSLog(@"touch count == 1");
-//        NSLog(@"old locattion, %f %f", touchLocation.x, touchLocation.y);
-//        [NSThread sleepForTimeInterval:1.3];
+// option 1 -> error
+//        self.accumulatedDistanceForX += (touchLocation.x - self.touchLastLocation.x);
+//        self.accumulatedDistanceForY += (touchLocation.y - self.touchLastLocation.y);
 //        
-//        CGPoint touchNewLocation = [touch locationInView:touchView];
-//        NSLog(@"new locattion, %f %f", touchNewLocation.x, touchNewLocation.y);
-//        [self handleOneFingerMove:touchLocation];
+//        CGFloat fixedDistance = 5;
+//        if (self.accumulatedDistanceForX > fixedDistance || self.accumulatedDistanceForY > fixedDistance) {
+//    
+//            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
+//            [self handleOneFingerMoveWithCoordinateOffset:self.accumulatedDistanceForX :self.accumulatedDistanceForY];
+//
+//            while (self.accumulatedDistanceForX > fixedDistance || self.accumulatedDistanceForY > fixedDistance) {
+//                self.accumulatedDistanceForX -= (touchLocation.x - self.touchLastLocation.x);
+//                self.accumulatedDistanceForY -= (touchLocation.y - self.touchLastLocation.y);
+//            }
+//        }
+      
+// option 2 -> good but not best
+//        self.accumulatedDistanceForX += (touchLocation.x - self.touchLastLocation.x);
+//        self.accumulatedDistanceForY += (touchLocation.y - self.touchLastLocation.y);
+//
+//        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
+//        [self handleOneFingerMoveWithCoordinateOffset:self.accumulatedDistanceForX :self.accumulatedDistanceForY];
+
+// option 3 -> good than 2, but still not the best
+//    if (self.accumulatedDistanceForX == 0 && self.accumulatedDistanceForY == 0) {
+//            self.accumulatedDistanceForX += (touchLocation.x - self.touchLastLocation.x);
+//            self.accumulatedDistanceForY += (touchLocation.y - self.touchLastLocation.y);
+//            
+//            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
+//            [self handleOneFingerMoveWithCoordinateOffset:self.accumulatedDistanceForX :self.accumulatedDistanceForY];
+//    }
+//    else {
+//        if (touchLocation.x >= self.touchLastLocation.x) {
+//            self.accumulatedDistanceForX += (touchLocation.x - self.touchLastLocation.x) / 5;
+//        }
+//        else {
+//            self.accumulatedDistanceForX = (touchLocation.x - self.touchLastLocation.x);
+//            self.accumulatedDistanceForX += (touchLocation.x - self.touchLastLocation.x);
+//        }
+//        
+//        if (touchLocation.y >= self.touchLastLocation.y) {
+//            self.accumulatedDistanceForY += (touchLocation.y - self.touchLastLocation.y) / 5;
+//        }
+//        else {
+//            self.accumulatedDistanceForY = (touchLocation.y - self.touchLastLocation.y);
+//            self.accumulatedDistanceForY += (touchLocation.y - self.touchLastLocation.y);
+//        }
+//        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
+//        [self handleOneFingerMoveWithCoordinateOffset:self.accumulatedDistanceForX :self.accumulatedDistanceForY];
+//            
+//    }
+//        CGFloat distance = sqrtf(fabsf(powf(self.touchLastLocation.x - touchLocation.x, 2) + powf(self.touchLastLocation.y - touchLocation.y, 2)));
+//        [self handleOneFingerMoveWithOffsetDistance:distance];
+//        NSLog(@"distance: %f",distance);
         
-        [self handleOneFingerMoveWithOffset:(touchLocation.x - self.touchLastLocation.x) :(touchLocation.y - self.touchLastLocation.y)];
+// option 4
+        
+        //self.accumulatedDistanceForX += (touchLocation.x - self.touchLastLocation.x);
+        //self.accumulatedDistanceForY += (touchLocation.y - self.touchLastLocation.y);
+        
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
+        [self handleOneFingerMoveWithCoordinateOffset:(touchLocation.x - prevTouchLocation.x) :(touchLocation.y - prevTouchLocation.y)];
     }
     if ([touches count] == 2){
         NSLog(@"touch count == 2");
-        [self handleTwoMove:touchLocation];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleTwoFingerSingleTap) object:nil];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerMove:) object:nil];
+        [self handleTwoFingerMove:touchLocation];
     }
    
     self.touchLastLocation = touchLocation;
@@ -129,46 +216,65 @@
     NSLog(@"handleOneFingerMove");
     [self sendTouchLocation:touchLocation];
 }
-- (void) handleOneFingerMoveWithOffset:(CGFloat) offsetX :(CGFloat) offsetY{
+- (void) handleOneFingerMoveWithCoordinateOffset:(CGFloat) offsetX :(CGFloat) offsetY{
     NSLog(@"handleOneFingerMove with offset");
-    [self sendTouchLocationOffset:offsetX :offsetY];
+    [self sendTouchLocationCoordinateOffset:offsetX :offsetY];
 }
+
+- (void) handleOneFingerMoveWithOffsetDistance:(CGFloat) distance{
+    NSLog(@"handleOneFingerMove With Offset Distance");
+    [self sendTouchLocationOffsetDistance:distance];
+}
+
 // scrolling
-- (void) handleTwoMove:(CGPoint) touchLocation{
-    NSLog(@"handleTwoMove");
+- (void) handleTwoFingerMove:(CGPoint) touchLocation{
+    NSLog(@"handleTwoFingerMove -- scrolling");
+}
+
+- (void) sendTouchLocation:(CGPoint) touchLocation{
+    NSString *locationXString = [NSString stringWithFormat:@"%f", touchLocation.x];
+    NSString *locationYString = [NSString stringWithFormat:@"%f", touchLocation.y];
+    NSString *location = [[locationXString stringByAppendingString:@"+"] stringByAppendingString:locationYString];
+    
+    NSString *messageText = location;
+    NSString * messageFinal = [@"Location:" stringByAppendingString:messageText];
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",data);
+	[self.server sendData:data error:&error];
+}
+
+- (void) sendTouchLocationCoordinateOffset:(CGFloat) offsetX :(CGFloat) offsetY{
+    NSString *locationXString = [NSString stringWithFormat:@"%f", offsetX];
+    NSString *locationYString = [NSString stringWithFormat:@"%f", offsetY];
+    NSString *location = [[locationXString stringByAppendingString:@"+"] stringByAppendingString:locationYString];
+    
+    NSString *messageText = location;
+    NSString * messageFinal = [@"LocCoorOffset:" stringByAppendingString:messageText];
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",data);
+	[self.server sendData:data error:&error];
+}
+
+- (void) sendTouchLocationOffsetDistance:(CGFloat) distance{
+    NSString *messageText = [NSString stringWithFormat:@"%f",distance];
+    NSString * messageFinal = [@"LocOffsetDis:" stringByAppendingString:messageText];
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",data);
+	[self.server sendData:data error:&error];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    UITouch *touch = [touches anyObject];
-    NSUInteger numTaps = [touch tapCount];
-    
-    float delay = 0.1;
-    
-    CGPoint touchEndedLocationForAvoidConflict = [touch locationInView:touchView];
-    
-    if ((self.touchBeginLocationForAvoidConflict.x == touchEndedLocationForAvoidConflict.x) && (self.touchBeginLocationForAvoidConflict.y == touchEndedLocationForAvoidConflict.y)) {
-//    if (touch.phase == UITouchPhaseMoved) {
-
-        NSLog(@"it is not a move, %d",touch.phase);
-        if ([touches count] < 2){
-            NSLog(@"touches ended");
-            if (numTaps < 2)
-            {
-                [self performSelector:@selector(handleOneFingerSingleTap) withObject:nil afterDelay:delay ];
-//              [self.nextResponder touchesEnded:touches withEvent:event];
-            }
-            else if(numTaps == 2)
-            {
-                [NSObject cancelPreviousPerformRequestsWithTarget:self];
-                [self performSelector:@selector(handleOneFingerDoubleTap) withObject:nil afterDelay:delay ];
-            }
-        } else if ([touches count] == 2){
-            if (numTaps < 2)
-            {
-                [self performSelector:@selector(handleTwoFingerSingleTap) withObject:nil afterDelay:delay ];
-            }
-        }
-    }
+    NSLog(@"touches ended");
+//    UITouch *touch = [touches anyObject];
+//    NSUInteger numTaps = [touch tapCount];
+//    
+//    float delay = 0.1;
+//    
+//    CGPoint touchEndedLocationForAvoidConflict = [touch locationInView:touchView];
+//    
 }
 
 // left click
@@ -206,37 +312,12 @@
 	[self.server sendData:data error:&error];
 }
 
-- (void) sendTouchLocation:(CGPoint) touchLocation{
-    NSString *locationXString = [NSString stringWithFormat:@"%f", touchLocation.x];
-    NSString *locationYString = [NSString stringWithFormat:@"%f", touchLocation.y];
-    NSString *location = [[locationXString stringByAppendingString:@"+"] stringByAppendingString:locationYString];
-    
-    NSString *messageText = location;
-    NSString * messageFinal = [@"Location:" stringByAppendingString:messageText];
-	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
-	NSError *error = nil;
-    NSLog(@"%@",data);
-	[self.server sendData:data error:&error];
-}
-
-- (void) sendTouchLocationOffset:(CGFloat) offsetX :(CGFloat) offsetY{
-    NSString *locationXString = [NSString stringWithFormat:@"%f", offsetX];
-    NSString *locationYString = [NSString stringWithFormat:@"%f", offsetY];
-    NSString *location = [[locationXString stringByAppendingString:@"+"] stringByAppendingString:locationYString];
-    
-    NSString *messageText = location;
-    NSString * messageFinal = [@"LocationOffset:" stringByAppendingString:messageText];
-	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
-	NSError *error = nil;
-    NSLog(@"%@",data);
-	[self.server sendData:data error:&error];
-}
 
 #pragma mark -
 #pragma mark actions 
 
 - (IBAction)switchAction:(id)sender {
-	
+	[touchView setUserInteractionEnabled:NO];
 	if (segments.selectedSegmentIndex == 0) {
 		iTunesPlay.hidden = NO;
 		iTunesPause.hidden = NO;
@@ -318,17 +399,15 @@
 		
 		KeynoteBack.hidden = YES;
 		KeynoteNext.hidden=YES;
-		KeynoteClosePresentation.hidden = YES;
-		
-		DvdPlay.hidden = YES;
-		DvdPause.hidden = YES;
-		DvdResume.hidden = YES;
-		DvdStop.hidden = YES;
-		
+		KeynoteBeginPresentation.hidden = YES;
+        KeynoteExitPresentation.hidden = YES;
+        
 		Capture.hidden = YES;
 		captureImage.hidden = YES;
 		
         touchView.hidden = YES;
+        [touchView setUserInteractionEnabled:NO];
+        
 	}
 	
 	
@@ -413,18 +492,15 @@
 		
 		KeynoteBack.hidden = YES;
 		KeynoteNext.hidden=YES;
-		KeynoteClosePresentation.hidden = YES;
-		
-		DvdPlay.hidden = YES;
-		DvdPause.hidden = YES;
-		DvdResume.hidden = YES;
-		DvdStop.hidden = YES;
-		
+		KeynoteBeginPresentation.hidden = YES;
+        KeynoteExitPresentation.hidden = YES;
 		
 		Capture.hidden = YES;
 		captureImage.hidden = YES;
 		
         touchView.hidden = YES;
+        [touchView setUserInteractionEnabled:NO];
+        
 	}
 	
 	
@@ -512,20 +588,29 @@
 		Terminal.hidden = YES;
 		Prefs.hidden = YES;
 		
-		DvdPlay.hidden = YES;
-		DvdPause.hidden = YES;
-		DvdResume.hidden = YES;
-		DvdStop.hidden = YES;
 		
 		Capture.hidden = YES;
 		captureImage.hidden = YES;
 		
-		
+        gamePlayAButton.hidden = YES;
+        gamePlayBButton.hidden = YES;
+        gamePlayCButton.hidden = YES;
+        gamePlayDButton.hidden = YES;
+        gamePlayUpButton.hidden = YES;
+        gamePlayDownButton.hidden = YES;
+        gamePlayLeftButton.hidden = YES;
+        gamePlayRightButton.hidden = YES;
+        
+        showKeyboardButton.hidden = YES;
+        
+		touchView.hidden = YES;
+        
 		KeynoteBack.hidden = NO;
 		KeynoteNext.hidden=NO;
-		KeynoteClosePresentation.hidden = NO;
+		KeynoteBeginPresentation.hidden = NO;
+        KeynoteExitPresentation.hidden = NO;
         
-        touchView.hidden = YES;
+        [touchView setUserInteractionEnabled:NO];
 	}
 	
 	if (segments.selectedSegmentIndex == 3) {
@@ -614,21 +699,28 @@
 		vol2.hidden = YES;
 		vol3.hidden = YES;
 		vol4.hidden = YES;
-	
-		KeynoteBack.hidden = YES;
-		KeynoteNext.hidden=YES;
-		KeynoteClosePresentation.hidden = YES;
-		
-		
+
 		Capture.hidden = YES;
 		captureImage.hidden = YES;
 		
-		DvdPlay.hidden = NO;
-		DvdPause.hidden = NO;
-		DvdResume.hidden = NO;
-		DvdStop.hidden = NO;
+        gamePlayAButton.hidden = NO;
+        gamePlayBButton.hidden = NO;
+        gamePlayCButton.hidden = NO;
+        gamePlayDButton.hidden = NO;
+        gamePlayUpButton.hidden = NO;
+        gamePlayDownButton.hidden = NO;
+        gamePlayLeftButton.hidden = NO;
+        gamePlayRightButton.hidden = NO;
         
+        showKeyboardButton.hidden = YES;
+        
+		KeynoteBack.hidden = YES;
+		KeynoteNext.hidden= YES;
+		KeynoteBeginPresentation.hidden = YES;
+        KeynoteExitPresentation.hidden = YES;
         touchView.hidden = YES;
+        
+        [touchView setUserInteractionEnabled:NO];
 	}
 	
 	if (segments.selectedSegmentIndex == 4) {
@@ -718,18 +810,26 @@
 		vol3.hidden = YES;
 		vol4.hidden = YES;
 		
+		Capture.hidden = YES;
+		captureImage.hidden = YES;
+		
+        gamePlayAButton.hidden = YES;
+        gamePlayBButton.hidden = YES;
+        gamePlayCButton.hidden = YES;
+        gamePlayDButton.hidden = YES;
+        gamePlayUpButton.hidden = YES;
+        gamePlayDownButton.hidden = YES;
+        gamePlayLeftButton.hidden = YES;
+        gamePlayRightButton.hidden = YES;
+        
+        showKeyboardButton.hidden = NO;
+        
 		KeynoteBack.hidden = YES;
-		KeynoteNext.hidden=YES;
-		KeynoteClosePresentation.hidden = YES;
-		
-		DvdPlay.hidden = YES;
-		DvdPause.hidden = YES;
-		DvdResume.hidden = YES;
-		DvdStop.hidden = YES;
-		
-		Capture.hidden = NO;
-		captureImage.hidden = NO;
+		KeynoteNext.hidden= YES;
+		KeynoteBeginPresentation.hidden = YES;
+        KeynoteExitPresentation.hidden = YES;
         touchView.hidden = YES;
+        [touchView setUserInteractionEnabled:NO];
 	}
 	if(segments.selectedSegmentIndex == 5){
         cmdA.hidden = YES;
@@ -776,23 +876,28 @@
 		vol3.hidden = YES;
 		vol4.hidden = YES;
 		
-		KeynoteBack.hidden = YES;
-		KeynoteNext.hidden=YES;
-		KeynoteClosePresentation.hidden = YES;
-		
-		DvdPlay.hidden = YES;
-		DvdPause.hidden = YES;
-		DvdResume.hidden = YES;
-		DvdStop.hidden = YES;
-		
-		Capture.hidden = YES;
-		captureImage.hidden = YES;
+		gamePlayAButton.hidden = YES;
+        gamePlayBButton.hidden = YES;
+        gamePlayCButton.hidden = YES;
+        gamePlayDButton.hidden = YES;
+        gamePlayUpButton.hidden = YES;
+        gamePlayDownButton.hidden = YES;
+        gamePlayLeftButton.hidden = YES;
+        gamePlayRightButton.hidden = YES;
         
+        showKeyboardButton.hidden = YES;
+        
+		KeynoteBack.hidden = YES;
+		KeynoteNext.hidden= YES;
+		KeynoteBeginPresentation.hidden = YES;
+        KeynoteExitPresentation.hidden = YES;
         touchView.hidden = NO;
+        [touchView setUserInteractionEnabled:YES];
+        [touchView setMultipleTouchEnabled:YES];
     }
     
 	else {
-		
+		[touchView setUserInteractionEnabled:NO];
 	}
 	
 }
@@ -1241,6 +1346,22 @@
 	NSError *error = nil;
 	[self.server sendData:data error:&error];
 }
+
+- (IBAction)KeynoteExit {
+    // ExitPresentation
+    NSString *actionText = [NSString stringWithFormat:@"ExitPresentation"];
+	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+	[self.server sendData:data error:&error];
+}
+
+- (IBAction)KeynoteBegin {
+    NSString *actionText = [NSString stringWithFormat:@"PresentationBegin"];
+	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+	[self.server sendData:data error:&error];
+}
+
 - (IBAction) KeynoteBack {
 	NSString *actionText = [NSString stringWithFormat:@"KeynoteBack"];
 	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
@@ -1273,6 +1394,62 @@
 	[self.server sendData:data error:&error];
 }
 
+- (IBAction)gamePlayUpArrow {
+    NSString *actionText = [NSString stringWithFormat:@"gamePlayUpArrow"];
+	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+	[self.server sendData:data error:&error];
+}
+
+- (IBAction)gamePlayRightArrow {
+    NSString *actionText = [NSString stringWithFormat:@"gamePlayRightArrow"];
+	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+	[self.server sendData:data error:&error];
+}
+
+- (IBAction)gamePlayLeftArrow {
+    NSString *actionText = [NSString stringWithFormat:@"gamePlayLeftArrow"];
+	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+	[self.server sendData:data error:&error];
+}
+
+- (IBAction)gamePlayDownArrow {
+    NSString *actionText = [NSString stringWithFormat:@"gamePlayDownArrow"];
+	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+	[self.server sendData:data error:&error];
+}
+
+- (IBAction)gamePlayA {
+    NSString *actionText = [NSString stringWithFormat:@"gamePlayA"];
+	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+	[self.server sendData:data error:&error];
+}
+
+- (IBAction)gamePlayB {
+    NSString *actionText = [NSString stringWithFormat:@"gamePlayB"];
+	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+	[self.server sendData:data error:&error];
+}
+
+- (IBAction)gamePlayC {
+    NSString *actionText = [NSString stringWithFormat:@"gamePlayC"];
+	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+	[self.server sendData:data error:&error];
+}
+
+- (IBAction)gamePlayD {
+    NSString *actionText = [NSString stringWithFormat:@"gamePlayD"];
+	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+	[self.server sendData:data error:&error];
+}
+
 - (IBAction) iSightCapture {
 	NSString *actionText = [NSString stringWithFormat:@"iSightCapture"];
 	NSData *data = [actionText dataUsingEncoding:NSUTF8StringEncoding];
@@ -1280,6 +1457,64 @@
 	[self.server sendData:data error:&error];
 }
 
+//-(BOOL)textFieldShouldReturn:(UITextField*)textField; {
+//    textField.hidden = YES;
+//    [textField resignFirstResponder];
+//    [showKeyboardButton setTitle:nil forState:UIControlEventEditingDidEndOnExit];
+//    return YES;
+//}
+
+- (IBAction)sendKeyboard:(id)sender {
+//    hiddenKeyboard = !hiddenKeyboard;
+    
+    
+    if (hiddenKeyboard) {
+		[showKeyboardButton setTitle:@"Show keyboard" forState:UIControlStateNormal];
+        [keyboardField becomeFirstResponder];
+        hiddenKeyboard = NO;
+	} else {
+		[showKeyboardButton setTitle:@"Hide keyboard" forState:UIControlStateNormal];
+        [keyboardField resignFirstResponder];
+        hiddenKeyboard = YES;
+	}
+}
+
+#pragma  mark -
+#pragma  mark keyboard delegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+	textField.text = @" ";
+    NSLog(@"textFieldDidBeginEditing");
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *finalString;
+    NSData *data;
+    NSError *error = nil;
+//	NSTimeInterval timestamp = [NSDate timeIntervalSinceReferenceDate];
+	if ([string isEqualToString:@""]) { // backspace
+//		[appc send:EVENT_KEY_DOWN with:kKeycodeBackSpace time:timestamp];
+//		[appc send:EVENT_KEY_UP with:kKeycodeBackSpace time:timestamp];
+        finalString = @"KeyboardBackSpaceCode";
+        data = [finalString dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error = nil;
+        [self.server sendData:data error:&error];
+	} else {
+//		[appc send:EVENT_ASCII with:[string characterAtIndex:0] time:timestamp];
+//        NSLog(@"keyboard showed");
+//        finalString = [@"KeyboardCode:" stringByAppendingString:string];
+//        data = [finalString dataUsingEncoding:NSUTF8StringEncoding];
+//        [self.server sendData:data error:&error];
+//        NSLog(@"data: %@",finalString);
+        
+        int32_t  value = [string characterAtIndex:0];
+        finalString = [NSString stringWithFormat:@"KeyboardCode:%d",value];
+        data = [finalString dataUsingEncoding:NSUTF8StringEncoding];
+        [self.server sendData:data error:&error];
+        NSLog(@"data: %@",finalString);
+	}
+	return FALSE;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
@@ -1290,6 +1525,18 @@
 
 - (void)viewDidUnload {
     touchView = nil;
+    KeynoteExitPresentation = nil;
+    KeynoteBeginPresentation = nil;
+    gamePlayUpButton = nil;
+    gamePlayRightButton = nil;
+    gamePlayDButton = nil;
+    gamePlayBButton = nil;
+    gamePlayAButton = nil;
+    gamePlayCButton = nil;
+    gamePlayLeftButton = nil;
+    gamePlayDownButton = nil;
+    showKeyboardButton = nil;
+    keyboardField = nil;
     [super viewDidUnload];
 }
 @end
