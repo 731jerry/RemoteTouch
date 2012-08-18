@@ -12,9 +12,16 @@
 @interface ServerRunningViewController : UIViewController <UITextFieldDelegate>{
 	
     BOOL hiddenKeyboard;
+    BOOL hiddenAdditionalKeyToolBar;
+    BOOL hiddenOtherKeyToolBar;
+    
 //    UITextField *keyboardField;
     __weak IBOutlet UITextField *keyboardField;
+    UIToolbar *keyboardShortcutToolbar;
+    UIToolbar *keyboardAdditionalKeyToolBar;
+    UIToolbar *keyboardOtherKeyToolBar;
     
+//    UIToolbar *keyboardToolbar;
 	IBOutlet UISegmentedControl *segments;
 	
 	//UI
@@ -31,62 +38,6 @@
 	IBOutlet UIButton *vol3;
 	IBOutlet UIButton *vol4;
 	
-	IBOutlet UIButton *cmdA;
-	IBOutlet UIButton *cmdC;
-	IBOutlet UIButton *cmdV;
-	IBOutlet UIButton *cmdZ;
-	IBOutlet UIButton *cmdH;
-	IBOutlet UIButton *cmdT;
-	IBOutlet UIButton *cmdQ;
-	IBOutlet UIButton *up;
-	IBOutlet UIButton *down;
-	IBOutlet UIButton *left;
-	IBOutlet UIButton *right;
-	IBOutlet UIButton *Delete;
-	IBOutlet UIButton *Enter;
-	IBOutlet UIButton *shutDown;
-	
-	/*IBOutlet UIButton *a;
-	IBOutlet UIButton *b;
-	IBOutlet UIButton *c;
-	IBOutlet UIButton *d;
-	IBOutlet UIButton *e;
-	IBOutlet UIButton *f;
-	IBOutlet UIButton *g;
-	IBOutlet UIButton *h;
-	IBOutlet UIButton *i;
-	IBOutlet UIButton *j;
-	IBOutlet UIButton *k;
-	IBOutlet UIButton *l;
-	IBOutlet UIButton *m;
-	IBOutlet UIButton *n;
-	IBOutlet UIButton *o;
-	IBOutlet UIButton *p;
-	IBOutlet UIButton *q;
-	IBOutlet UIButton *r;
-	IBOutlet UIButton *s;
-	IBOutlet UIButton *t;
-	IBOutlet UIButton *u;
-	IBOutlet UIButton *v;
-	IBOutlet UIButton *w;
-	IBOutlet UIButton *x;
-	IBOutlet UIButton *y;
-	IBOutlet UIButton *z;
-	
-	IBOutlet UIButton *period;
-	IBOutlet UIButton *comma;
-	IBOutlet UIButton *exclamation;
-	IBOutlet UIButton *question;
-	IBOutlet UIButton *carrot;
-	IBOutlet UIButton *carrot1;
-	IBOutlet UIButton *curlybracket1;
-	IBOutlet UIButton *curlybracket2;
-	IBOutlet UIButton *slash;
-	IBOutlet UIButton *space;
-	IBOutlet UIButton *enterKey;
-	IBOutlet UIButton *deleteKey;
-	IBOutlet UIButton *tab;*/
-	
 	IBOutlet UIButton *iTunes;
 	IBOutlet UIButton *iPhoto;
 	IBOutlet UIButton *iMovie;
@@ -99,7 +50,8 @@
 	IBOutlet UIButton *KeynoteNext;
 	IBOutlet UIButton *KeynoteBack;
     __weak IBOutlet UIButton *KeynoteExitPresentation;
-    __weak IBOutlet UIButton *KeynoteBeginPresentation;
+    __weak IBOutlet UIButton *KeynoteBeginFromFirstPage;
+    __weak IBOutlet UIButton *KeynoteBeginFromCurrentPage;
 	
 	
     __weak IBOutlet UIButton *gamePlayUpButton;
@@ -112,14 +64,16 @@
     __weak IBOutlet UIButton *gamePlayDownButton;
     
     
+    __weak IBOutlet UITextField *appleScriptInputText;
+    __weak IBOutlet UILabel *appleScriptLabel1;
+    __weak IBOutlet UILabel *appleScriptLabel2;
     __weak IBOutlet UIButton *showKeyboardButton;
-    
-	
-	IBOutlet UIButton *Capture;
-	IBOutlet UIImageView *captureImage;
-	
+    __weak IBOutlet UIButton *sendAppleScriptButton;
     
     __weak IBOutlet UIView *touchView;
+    __weak IBOutlet UIButton *touchViewLeftClick;
+    __weak IBOutlet UIButton *touchViewRightClick;
+    __weak IBOutlet UIButton *touchViewShowKeyboardButton;
     
 	NSString *_message;
 	Server *_server;
@@ -128,6 +82,7 @@
 
 @property(nonatomic, retain) NSString *message;
 @property(nonatomic, retain) Server *server;
+@property (strong, nonatomic) IBOutlet UIView *serverRunningView;
 
 
 
@@ -146,68 +101,10 @@
 - (IBAction) FinderVol3;
 - (IBAction) FinderVol4;
 
-//SHORTCUTS
+//SHORTCUTS..
 
--(IBAction) cmdA;
--(IBAction) cmdH;
--(IBAction) cmdT;
--(IBAction) cmdC;
--(IBAction) cmdV;
--(IBAction) cmdZ;
--(IBAction) cmdQ;
--(IBAction) arrowU;
--(IBAction) arrowD;
--(IBAction) arrowL;
--(IBAction) arrowR;
--(IBAction) Delete;
--(IBAction) Enter;
--(IBAction) ShutDown;
+- (IBAction)shiftButtonAction;
 
-
-// KEYBOARD
-
-
-/*
-- (IBAction) Akey;
-- (IBAction) Bkey;
-- (IBAction) Ckey;
-- (IBAction) Dkey;
-- (IBAction) Ekey;
-- (IBAction) Fkey;
-- (IBAction) Gkey;
-- (IBAction) Hkey;
-- (IBAction) Ikey;
-- (IBAction) Jkey;
-- (IBAction) Kkey;
-- (IBAction) Lkey;
-- (IBAction) Mkey;
-- (IBAction) Nkey;
-- (IBAction) Okey;
-- (IBAction) Pkey;
-- (IBAction) Qkey;
-- (IBAction) Rkey;
-- (IBAction) Skey;
-- (IBAction) Tkey;
-- (IBAction) Ukey;
-- (IBAction) Vkey;
-- (IBAction) Wkey;
-- (IBAction) Xkey;
-- (IBAction) Ykey;
-- (IBAction) Zkey;
-- (IBAction) SpaceKey;
-- (IBAction) EnterKey;
-- (IBAction) DeleteKey;
-- (IBAction) Period;
-- (IBAction) Comma;
-- (IBAction) Slash;
-- (IBAction) Question;
-- (IBAction) Exclamation;
-- (IBAction) Carrot;
-- (IBAction) Carrot2;
-- (IBAction) CurlyBracket;
-- (IBAction) CurlyBracket2;
-- (IBAction) Tab;
-*/
 - (IBAction) iTunes;
 - (IBAction) iPhoto;
 - (IBAction) iMovie;
@@ -216,19 +113,12 @@
 - (IBAction) Terminal;
 - (IBAction) Prefs;
 
-
-
 - (IBAction) KeynoteNext;
-- (IBAction)KeynoteExit;
-- (IBAction)KeynoteBegin;
+- (IBAction) KeynoteExit;
+- (IBAction) KeynoteBeginFromFirstPage;
+- (IBAction) KeynoteBeginFromCurrentPage;
 - (IBAction) KeynoteBack;
 - (IBAction) KeynoteClosePresentation;
-
-- (IBAction) DvdPlay;
-- (IBAction) DvdPause;
-- (IBAction) DvdResume;
-- (IBAction) DvdStop;
-
 
 - (IBAction)gamePlayUpArrow;
 - (IBAction)gamePlayRightArrow;
@@ -242,6 +132,14 @@
 - (IBAction) iSightCapture;
 
 - (IBAction)sendKeyboard:(id)sender;
-- (IBAction)ResponderDismissKeyboard: (id) sender ;
+- (IBAction)sendAppleScript;
+- (IBAction)touchViewLeftClickAction:(id)sender;
+- (IBAction)touchViewRightClickAction:(id)sender;
+- (IBAction)touchViewShowKeyboardButtonAction;
+
+- (IBAction)appleScriptInputToCallKeyBoard:(UITextField *)sender;
+
+
+
 
 @end

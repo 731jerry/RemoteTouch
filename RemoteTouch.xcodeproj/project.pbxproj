@@ -19,6 +19,8 @@
 		D997FFCE15D94C3400EF2EDD /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D997FFCB15D94C3400EF2EDD /* MainWindow.xib */; };
 		D997FFCF15D94C3400EF2EDD /* ServerBrowserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D997FFCC15D94C3400EF2EDD /* ServerBrowserView.xib */; };
 		D997FFD015D94C3400EF2EDD /* ServerRunningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D997FFCD15D94C3400EF2EDD /* ServerRunningView.xib */; };
+		D9AC00CB15DEBFE400A4495F /* black-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC00C915DEBFE400A4495F /* black-button@2x.png */; };
+		D9AC00CC15DEBFE400A4495F /* red-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC00CA15DEBFE400A4495F /* red-button@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		D997FFCB15D94C3400EF2EDD /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D997FFCC15D94C3400EF2EDD /* ServerBrowserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerBrowserView.xib; sourceTree = "<group>"; };
 		D997FFCD15D94C3400EF2EDD /* ServerRunningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerRunningView.xib; sourceTree = "<group>"; };
+		D9AC00C915DEBFE400A4495F /* black-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black-button@2x.png"; sourceTree = "<group>"; };
+		D9AC00CA15DEBFE400A4495F /* red-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-button@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 		D920953615D9460E0071A566 /* RemoteTouch */ = {
 			isa = PBXGroup;
 			children = (
+				D9AC00CE15DEBFE800A4495F /* Resources */,
 				D91F0DB215DB452D006234B6 /* Server */,
 				D91F0DB015DB4516006234B6 /* Views */,
 				D920953F15D9460E0071A566 /* AppDelegate.h */,
@@ -128,6 +133,15 @@
 				D920953E15D9460E0071A566 /* RemoteTouch-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9AC00CE15DEBFE800A4495F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC00C915DEBFE400A4495F /* black-button@2x.png */,
+				D9AC00CA15DEBFE400A4495F /* red-button@2x.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +200,8 @@
 				D997FFCE15D94C3400EF2EDD /* MainWindow.xib in Resources */,
 				D997FFCF15D94C3400EF2EDD /* ServerBrowserView.xib in Resources */,
 				D997FFD015D94C3400EF2EDD /* ServerRunningView.xib in Resources */,
+				D9AC00CB15DEBFE400A4495F /* black-button@2x.png in Resources */,
+				D9AC00CC15DEBFE400A4495F /* red-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +306,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RemoteTouch/RemoteTouch-Prefix.pch";
 				INFOPLIST_FILE = "RemoteTouch/RemoteTouch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -302,6 +319,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RemoteTouch/RemoteTouch-Prefix.pch";
 				INFOPLIST_FILE = "RemoteTouch/RemoteTouch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
