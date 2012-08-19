@@ -122,6 +122,9 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
     return self;
 }
 
+- (NSString *) getLocalServerName{
+    return [_localService name];
+}
 // star the server, returns YES if successful and NO if not
 // if NO is returned there will be more detail in the error object
 // if you don't care about the error you can pass NULL
@@ -268,6 +271,7 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
         CFRelease(_socket);
         _socket = NULL;
     }
+    self.isConnectSuccessfully = NO;
     [self _stopStreams];
     [self.delegate serverStopped:self];
 }

@@ -10,7 +10,9 @@
 
 #import "ServerBrowserTableViewController.h"
 
-@interface ServerBrowserTableViewController()
+@interface ServerBrowserTableViewController(){
+    BOOL openedConnectedView;
+}
 @property(nonatomic, retain) NSMutableArray *services;
 @end
 
@@ -19,6 +21,7 @@
 @synthesize services = _services;
 @synthesize server = _server;
 @synthesize delegate = _delegate;
+@synthesize selectedTableViewName = _selectedTableViewName;
 
 - (void) viewDidLoad {
 	
@@ -44,7 +47,7 @@
 //    else{
 //        NSLog(@"server start in 1 view");
 //    }
-	
+	openedConnectedView = NO;
 }
 
 
@@ -65,18 +68,55 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    self.title = @"Connection List";
+    self.title = [[UIDevice currentDevice] name];
     self.services = nil;
     [self.tableView reloadData];
-    
-    NSString *type = @"TestingProtocol";
-    _server = [[Server alloc] initWithProtocol:type];
-    //_server.delegate = self;
-    //    NSError *error = nil;
     [_server stop];
 }
 
 - (void) viewDidAppear:(BOOL)animated{
+    
+//    if (_server.isConnectSuccessfully == YES) {
+//        
+//        NSLog(@"_server.isConnectSuccessfully");
+//        NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+//    }
+//    else {
+//        NSLog(@"!_server.isConnectSuccessfully");
+//        [self.delegate navigationBarToBeDisconnected:self];
+//        NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+//    }
+//    if (self.services == nil) {
+//        [self.delegate navigationBarToBeDisconnected:self];
+//        NSLog(@"services == nil");
+//    }
+//    else {
+//        [self.delegate navigationBarToBeReadyToConnceted:self];
+//        NSLog(@"services != nil");
+//    }
+    openedConnectedView = NO;
+    [self manageServers:nil];
+}
+
+- (void)manageServers:(NSString *)name {
+//	if (_ownName != name) {
+//		_ownName = [name copy];
+//		
+//		if (self.ownEntry)
+//			[self.services addObject:self.ownEntry];
+//		
+//		NSNetService* service;
+//		
+//		for (service in self.services) {
+//			if ([service.name isEqual:name]) {
+//				self.ownEntry = service;
+//				[_services removeObject:service];
+//				break;
+//			}
+//		}
+//		
+//		[self.tableView reloadData];
+//	}
     
     if (_server.isConnectSuccessfully == YES) {
         
@@ -88,20 +128,42 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         [self.delegate navigationBarToBeDisconnected:self];
         NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
     }
-    if (self.services == nil) {
-        [self.delegate navigationBarToBeDisconnected:self];
-        NSLog(@"services == nil");
-    }
-    else {
-        [self.delegate navigationBarToBeReadyToConnceted:self];
-        NSLog(@"services != nil");
-    }
-
+//    if (self.services == nil) {
+//        [self.delegate navigationBarToBeDisconnected:self];
+//        NSLog(@"services == nil");
+//    }
+//    else {
+//        [self.delegate navigationBarToBeReadyToConnceted:self];
+//        NSLog(@"services != nil");
+//    }
+    
+//    if ([self.services count] == 0) {
+//        [self.delegate navigationBarToBeDisconnected:self];
+//        NSLog(@"services == nil");
+//    }
+//    if (self.services == nil) {
+//        [self.delegate navigationBarToBeReadyToConnceted:self];
+//        NSLog(@"services = nil");
+//    }
+//    if (self.services != nil) {
+//        <#statements#>
+//    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.services = nil;
+    
+//    NSString *type = @"TestingProtocol";
+//    _server = [[Server alloc] initWithProtocol:type];
+    //_server.delegate = self;
+    //    NSError *error = nil;
+//    [_server stop];
+    openedConnectedView = YES;
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+//    openedConnectedView = NO;
 }
 
 - (NSMutableArray *)services {
@@ -112,17 +174,34 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
 - (void)addService:(NSNetService *)service moreComing:(BOOL)more {
-    [self.services addObject:service];
-    if(!more) {
-        [self.tableView reloadData];
+    if (![service.name isEqualToString:[[UIDevice currentDevice] name]]) {
+        [self.delegate navigationBarToBeReadyToConnceted:self];
+        [self.services addObject:service];
+        if(!more) {
+            [self.tableView reloadData];
+        }
+        
+//        [self manageServers:[[UIDevice currentDevice] name]];
     }
 }
 
 - (void)removeService:(NSNetService *)service moreComing:(BOOL)more {
-    [self.services removeObject:service];
-    if(!more) {
-        [self.tableView reloadData];
+    if ([self.services count] > 0){
+        [self.delegate navigationBarToBeReadyToConnceted:self];
+        NSLog(@"servers count = %d",self.services.count);
+        [self.services removeObject:service];
+        NSLog(@"servers count = %d",self.services.count);
+        if(!more) {
+            [self.tableView reloadData];
+        }
     }
+    if ([self.services count] == 0){
+        if (!openedConnectedView) {
+            [self.delegate navigationBarToBeDisconnected:self];
+            NSLog(@"servers count == 0");
+        }
+    }
+//    [self manageServers:[[UIDevice currentDevice] name]];
 }
 
 #pragma mark Table view methods
@@ -132,7 +211,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Mac Computers";
+    return @"Mac Computer list";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -146,7 +225,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
 //        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] ;
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
     cell.textLabel.text = [[self.services objectAtIndex:indexPath.row] name];
@@ -159,6 +238,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     [self.server connectToRemoteService:[self.services objectAtIndex:indexPath.row]];
     NSLog(@"didSelectRowAtIndexPath self.services >>> %@", [self.services objectAtIndex:indexPath.row]);
     NSLog(@"selected");
+//    self.services = nil;
+    self.selectedTableViewName = (NSString *)[[self.services objectAtIndex:indexPath.row] name];
+    openedConnectedView = YES;
+    [self.delegate navigationBarToBeConnected:self];
+    
 }
 
 #pragma mark -

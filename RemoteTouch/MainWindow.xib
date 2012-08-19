@@ -50,7 +50,6 @@
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -94,8 +93,8 @@
 					<object class="IBUIViewController" id="619226028">
 						<object class="IBUINavigationItem" key="IBUINavigationItem" id="394667715">
 							<reference key="IBUINavigationBar"/>
-							<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="493131399">
-								<string key="IBUITitle">Refresh</string>
+							<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="823866358">
+								<string key="IBUITitle">Refresh Server</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUINavigationItem" ref="394667715"/>
@@ -161,10 +160,10 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">refreshServerListButton:</string>
-						<reference key="source" ref="493131399"/>
+						<reference key="source" ref="823866358"/>
 						<reference key="destination" ref="664661524"/>
 					</object>
-					<int key="connectionID">26</int>
+					<int key="connectionID">57</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -227,20 +226,6 @@
 						<reference key="parent" ref="701001926"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">14</int>
-						<reference key="object" ref="394667715"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="493131399"/>
-						</object>
-						<reference key="parent" ref="619226028"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">23</int>
-						<reference key="object" ref="493131399"/>
-						<reference key="parent" ref="394667715"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">43</int>
 						<reference key="object" ref="1062388185"/>
 						<object class="NSMutableArray" key="children">
@@ -253,6 +238,20 @@
 						<int key="objectID">46</int>
 						<reference key="object" ref="731600972"/>
 						<reference key="parent" ref="1062388185"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">14</int>
+						<reference key="object" ref="394667715"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="823866358"/>
+						</object>
+						<reference key="parent" ref="619226028"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">56</int>
+						<reference key="object" ref="823866358"/>
+						<reference key="parent" ref="394667715"/>
 					</object>
 				</object>
 			</object>
@@ -270,12 +269,12 @@
 					<string>14.IBPluginDependency</string>
 					<string>2.IBAttributePlaceholdersKey</string>
 					<string>2.IBPluginDependency</string>
-					<string>23.IBPluginDependency</string>
 					<string>3.CustomClassName</string>
 					<string>3.IBPluginDependency</string>
 					<string>43.CustomClassName</string>
 					<string>43.IBPluginDependency</string>
 					<string>46.IBPluginDependency</string>
+					<string>56.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
 				</object>
 				<object class="NSArray" key="dict.values">
@@ -294,10 +293,10 @@
 						<reference key="dict.values" ref="957960031"/>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>AppDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>ServerRunningViewController</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -315,7 +314,7 @@
 				<reference key="dict.values" ref="957960031"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">54</int>
+			<int key="maxID">57</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -400,34 +399,28 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>Delete</string>
-							<string>DvdPause</string>
-							<string>DvdPlay</string>
-							<string>DvdResume</string>
-							<string>DvdStop</string>
-							<string>Enter</string>
 							<string>FinderVol1</string>
 							<string>FinderVol2</string>
 							<string>FinderVol3</string>
 							<string>FinderVol4</string>
 							<string>KeynoteBack</string>
+							<string>KeynoteBeginFromCurrentPage</string>
+							<string>KeynoteBeginFromFirstPage</string>
 							<string>KeynoteClosePresentation</string>
+							<string>KeynoteExit</string>
 							<string>KeynoteNext</string>
 							<string>Prefs</string>
 							<string>Safari</string>
-							<string>ShutDown</string>
 							<string>Terminal</string>
-							<string>arrowD</string>
-							<string>arrowL</string>
-							<string>arrowR</string>
-							<string>arrowU</string>
-							<string>cmdA</string>
-							<string>cmdC</string>
-							<string>cmdH</string>
-							<string>cmdQ</string>
-							<string>cmdT</string>
-							<string>cmdV</string>
-							<string>cmdZ</string>
+							<string>appleScriptInputToCallKeyBoard:</string>
+							<string>gamePlayA</string>
+							<string>gamePlayB</string>
+							<string>gamePlayC</string>
+							<string>gamePlayD</string>
+							<string>gamePlayDownArrow</string>
+							<string>gamePlayLeftArrow</string>
+							<string>gamePlayRightArrow</string>
+							<string>gamePlayUpArrow</string>
 							<string>iChat</string>
 							<string>iMovie</string>
 							<string>iPhoto</string>
@@ -439,7 +432,13 @@
 							<string>iTunesPrevious</string>
 							<string>iTunesVolumeDown</string>
 							<string>iTunesVolumeUp</string>
+							<string>sendAppleScript</string>
+							<string>sendKeyboard:</string>
+							<string>shiftButtonAction</string>
 							<string>switchAction:</string>
+							<string>touchViewLeftClickAction:</string>
+							<string>touchViewRightClickAction:</string>
+							<string>touchViewShowKeyboardButtonAction</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -456,7 +455,7 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
-							<string>id</string>
+							<string>UITextField</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -489,34 +488,28 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>Delete</string>
-							<string>DvdPause</string>
-							<string>DvdPlay</string>
-							<string>DvdResume</string>
-							<string>DvdStop</string>
-							<string>Enter</string>
 							<string>FinderVol1</string>
 							<string>FinderVol2</string>
 							<string>FinderVol3</string>
 							<string>FinderVol4</string>
 							<string>KeynoteBack</string>
+							<string>KeynoteBeginFromCurrentPage</string>
+							<string>KeynoteBeginFromFirstPage</string>
 							<string>KeynoteClosePresentation</string>
+							<string>KeynoteExit</string>
 							<string>KeynoteNext</string>
 							<string>Prefs</string>
 							<string>Safari</string>
-							<string>ShutDown</string>
 							<string>Terminal</string>
-							<string>arrowD</string>
-							<string>arrowL</string>
-							<string>arrowR</string>
-							<string>arrowU</string>
-							<string>cmdA</string>
-							<string>cmdC</string>
-							<string>cmdH</string>
-							<string>cmdQ</string>
-							<string>cmdT</string>
-							<string>cmdV</string>
-							<string>cmdZ</string>
+							<string>appleScriptInputToCallKeyBoard:</string>
+							<string>gamePlayA</string>
+							<string>gamePlayB</string>
+							<string>gamePlayC</string>
+							<string>gamePlayD</string>
+							<string>gamePlayDownArrow</string>
+							<string>gamePlayLeftArrow</string>
+							<string>gamePlayRightArrow</string>
+							<string>gamePlayUpArrow</string>
 							<string>iChat</string>
 							<string>iMovie</string>
 							<string>iPhoto</string>
@@ -528,34 +521,16 @@
 							<string>iTunesPrevious</string>
 							<string>iTunesVolumeDown</string>
 							<string>iTunesVolumeUp</string>
+							<string>sendAppleScript</string>
+							<string>sendKeyboard:</string>
+							<string>shiftButtonAction</string>
 							<string>switchAction:</string>
+							<string>touchViewLeftClickAction:</string>
+							<string>touchViewRightClickAction:</string>
+							<string>touchViewShowKeyboardButtonAction</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">Delete</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">DvdPause</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">DvdPlay</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">DvdResume</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">DvdStop</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">Enter</string>
-								<string key="candidateClassName">id</string>
-							</object>
 							<object class="IBActionInfo">
 								<string key="name">FinderVol1</string>
 								<string key="candidateClassName">id</string>
@@ -577,7 +552,19 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
+								<string key="name">KeynoteBeginFromCurrentPage</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">KeynoteBeginFromFirstPage</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
 								<string key="name">KeynoteClosePresentation</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">KeynoteExit</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -593,55 +580,43 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">ShutDown</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
 								<string key="name">Terminal</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">arrowD</string>
+								<string key="name">appleScriptInputToCallKeyBoard:</string>
+								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">gamePlayA</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">arrowL</string>
+								<string key="name">gamePlayB</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">arrowR</string>
+								<string key="name">gamePlayC</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">arrowU</string>
+								<string key="name">gamePlayD</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">cmdA</string>
+								<string key="name">gamePlayDownArrow</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">cmdC</string>
+								<string key="name">gamePlayLeftArrow</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">cmdH</string>
+								<string key="name">gamePlayRightArrow</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">cmdQ</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">cmdT</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">cmdV</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">cmdZ</string>
+								<string key="name">gamePlayUpArrow</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -689,7 +664,31 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
+								<string key="name">sendAppleScript</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">sendKeyboard:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">shiftButtonAction</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
 								<string key="name">switchAction:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">touchViewLeftClickAction:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">touchViewRightClickAction:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">touchViewShowKeyboardButtonAction</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -698,28 +697,25 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>Capture</string>
-							<string>Delete</string>
-							<string>DvdPause</string>
-							<string>DvdPlay</string>
-							<string>DvdResume</string>
-							<string>DvdStop</string>
-							<string>Enter</string>
 							<string>KeynoteBack</string>
-							<string>KeynoteClosePresentation</string>
+							<string>KeynoteBeginFromCurrentPage</string>
+							<string>KeynoteBeginFromFirstPage</string>
+							<string>KeynoteExitPresentation</string>
 							<string>KeynoteNext</string>
 							<string>Prefs</string>
 							<string>Safari</string>
 							<string>Terminal</string>
-							<string>captureImage</string>
-							<string>cmdA</string>
-							<string>cmdC</string>
-							<string>cmdH</string>
-							<string>cmdQ</string>
-							<string>cmdT</string>
-							<string>cmdV</string>
-							<string>cmdZ</string>
-							<string>down</string>
+							<string>appleScriptInputText</string>
+							<string>appleScriptLabel1</string>
+							<string>appleScriptLabel2</string>
+							<string>gamePlayAButton</string>
+							<string>gamePlayBButton</string>
+							<string>gamePlayCButton</string>
+							<string>gamePlayDButton</string>
+							<string>gamePlayDownButton</string>
+							<string>gamePlayLeftButton</string>
+							<string>gamePlayRightButton</string>
+							<string>gamePlayUpButton</string>
 							<string>iChat</string>
 							<string>iMovie</string>
 							<string>iPhoto</string>
@@ -731,11 +727,15 @@
 							<string>iTunesSearch</string>
 							<string>iTunesVolumeDown</string>
 							<string>iTunesVolumeUp</string>
-							<string>left</string>
-							<string>right</string>
+							<string>keyboardField</string>
 							<string>segments</string>
-							<string>shutDown</string>
-							<string>up</string>
+							<string>sendAppleScriptButton</string>
+							<string>serverRunningView</string>
+							<string>showKeyboardButton</string>
+							<string>touchView</string>
+							<string>touchViewLeftClick</string>
+							<string>touchViewRightClick</string>
+							<string>touchViewShowKeyboardButton</string>
 							<string>vol1</string>
 							<string>vol2</string>
 							<string>vol3</string>
@@ -751,12 +751,9 @@
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIImageView</string>
+							<string>UITextField</string>
+							<string>UILabel</string>
+							<string>UILabel</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
@@ -776,9 +773,13 @@
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
+							<string>UITextField</string>
 							<string>UISegmentedControl</string>
+							<string>UIButton</string>
+							<string>UIView</string>
+							<string>UIButton</string>
+							<string>UIView</string>
+							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
@@ -791,28 +792,25 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>Capture</string>
-							<string>Delete</string>
-							<string>DvdPause</string>
-							<string>DvdPlay</string>
-							<string>DvdResume</string>
-							<string>DvdStop</string>
-							<string>Enter</string>
 							<string>KeynoteBack</string>
-							<string>KeynoteClosePresentation</string>
+							<string>KeynoteBeginFromCurrentPage</string>
+							<string>KeynoteBeginFromFirstPage</string>
+							<string>KeynoteExitPresentation</string>
 							<string>KeynoteNext</string>
 							<string>Prefs</string>
 							<string>Safari</string>
 							<string>Terminal</string>
-							<string>captureImage</string>
-							<string>cmdA</string>
-							<string>cmdC</string>
-							<string>cmdH</string>
-							<string>cmdQ</string>
-							<string>cmdT</string>
-							<string>cmdV</string>
-							<string>cmdZ</string>
-							<string>down</string>
+							<string>appleScriptInputText</string>
+							<string>appleScriptLabel1</string>
+							<string>appleScriptLabel2</string>
+							<string>gamePlayAButton</string>
+							<string>gamePlayBButton</string>
+							<string>gamePlayCButton</string>
+							<string>gamePlayDButton</string>
+							<string>gamePlayDownButton</string>
+							<string>gamePlayLeftButton</string>
+							<string>gamePlayRightButton</string>
+							<string>gamePlayUpButton</string>
 							<string>iChat</string>
 							<string>iMovie</string>
 							<string>iPhoto</string>
@@ -824,11 +822,15 @@
 							<string>iTunesSearch</string>
 							<string>iTunesVolumeDown</string>
 							<string>iTunesVolumeUp</string>
-							<string>left</string>
-							<string>right</string>
+							<string>keyboardField</string>
 							<string>segments</string>
-							<string>shutDown</string>
-							<string>up</string>
+							<string>sendAppleScriptButton</string>
+							<string>serverRunningView</string>
+							<string>showKeyboardButton</string>
+							<string>touchView</string>
+							<string>touchViewLeftClick</string>
+							<string>touchViewRightClick</string>
+							<string>touchViewShowKeyboardButton</string>
 							<string>vol1</string>
 							<string>vol2</string>
 							<string>vol3</string>
@@ -837,39 +839,19 @@
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
-								<string key="name">Capture</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">Delete</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">DvdPause</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">DvdPlay</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">DvdResume</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">DvdStop</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">Enter</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
 								<string key="name">KeynoteBack</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">KeynoteClosePresentation</string>
+								<string key="name">KeynoteBeginFromCurrentPage</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">KeynoteBeginFromFirstPage</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">KeynoteExitPresentation</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -889,39 +871,47 @@
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">captureImage</string>
-								<string key="candidateClassName">UIImageView</string>
+								<string key="name">appleScriptInputText</string>
+								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">cmdA</string>
+								<string key="name">appleScriptLabel1</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">appleScriptLabel2</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">gamePlayAButton</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">cmdC</string>
+								<string key="name">gamePlayBButton</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">cmdH</string>
+								<string key="name">gamePlayCButton</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">cmdQ</string>
+								<string key="name">gamePlayDButton</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">cmdT</string>
+								<string key="name">gamePlayDownButton</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">cmdV</string>
+								<string key="name">gamePlayLeftButton</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">cmdZ</string>
+								<string key="name">gamePlayRightButton</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">down</string>
+								<string key="name">gamePlayUpButton</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -969,23 +959,39 @@
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">left</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">right</string>
-								<string key="candidateClassName">UIButton</string>
+								<string key="name">keyboardField</string>
+								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">segments</string>
 								<string key="candidateClassName">UISegmentedControl</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">shutDown</string>
+								<string key="name">sendAppleScriptButton</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">up</string>
+								<string key="name">serverRunningView</string>
+								<string key="candidateClassName">UIView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">showKeyboardButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">touchView</string>
+								<string key="candidateClassName">UIView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">touchViewLeftClick</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">touchViewRightClick</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">touchViewShowKeyboardButton</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">

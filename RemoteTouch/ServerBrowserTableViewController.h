@@ -14,6 +14,7 @@
 
 - (void) navigationBarToBeDisconnected:(ServerBrowserTableViewController *) sender;
 - (void) navigationBarToBeReadyToConnceted:(ServerBrowserTableViewController *) sender;
+- (void) navigationBarToBeConnected:(ServerBrowserTableViewController *) sender;
 @end
 
 @interface ServerBrowserTableViewController : UITableViewController {
@@ -22,6 +23,7 @@
 }
 
 @property(nonatomic, retain) Server *server;
+@property (nonatomic, weak) NSString *selectedTableViewName;
 
 - (void)addService:(NSNetService *)service moreComing:(BOOL)moreComing;
 - (void)removeService:(NSNetService *)service moreComing:(BOOL)moreComing;

@@ -43,6 +43,8 @@
 //    [keyboardField becomeFirstResponder];
 //    [self.serverRunningView addSubview:touchView];
 //    self.serverRunningView.exclusiveTouch = NO;
+    
+    self.title = self.message;
 }
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -56,6 +58,12 @@
     hiddenOtherKeyToolBar = YES;
 
     touchView.exclusiveTouch = NO;
+    
+    NSString * messageFinal = [@"Connection To: " stringByAppendingString:[[UIDevice currentDevice] name]];
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",data);
+	[self.server sendData:data error:&error];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -69,6 +77,7 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
+
         
         //This pops up when the user starts the app and tells them to download the MacRemote desktop tool
         

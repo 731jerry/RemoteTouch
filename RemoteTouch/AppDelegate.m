@@ -10,7 +10,9 @@
 #import "ServerBrowserTableViewController.h"
 #import "ServerRunningViewController.h"
 
-@implementation AppDelegate
+@implementation AppDelegate{
+    
+}
 
 @synthesize window;
 @synthesize navigationController;
@@ -37,39 +39,50 @@
 {
     serverBrowserTVC.delegate = self;
     
+    
 //    // not started gray 
 //    [[navigationController navigationBar] setTintColor:[UIColor grayColor]];    
 	[window addSubview:[navigationController view]];
 	[window makeKeyAndVisible];
     
-    
+//    [self refreshServer];
     return YES;
 }
 
+
+- (void) refreshServer{
+    NSLog(@"refresh");
+    if (_server.isConnectSuccessfully) {
+        [_server stop];
+    }
+    if (!_server.isConnectSuccessfully) {
+        
+        NSString *type = @"TestingProtocol";
+        _server = [[Server alloc] initWithProtocol:type];
+        _server.delegate = self;
+        NSError *error = nil;
+        if(![_server start:&error]) {
+            NSLog(@"error = %@", error);
+            // not started gray
+            [[navigationController navigationBar] setTintColor:[UIColor grayColor]];
+            NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+        }
+        else {
+            // ready to be connect set to orange
+            NSLog(@"successful");
+            NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
+        }
+        
+        serverBrowserTVC.server = _server;
+    }
+}
 - (IBAction)refreshServerListButton:(id)sender {
-    
-    [_server stop];
-    NSString *type = @"TestingProtocol";
-    _server = [[Server alloc] initWithProtocol:type];
-    _server.delegate = self;
-    NSError *error = nil;
-    if(![_server start:&error]) {
-        NSLog(@"error = %@", error);
-        // not started gray
-        [[navigationController navigationBar] setTintColor:[UIColor grayColor]];
-        NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
-    }
-    else {
-        // ready to be connect set to orange
-        [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0f]];
-        NSLog(@"successful");
-        NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
-    }
-    
-    serverBrowserTVC.server = _server;
+    [self refreshServer];
 }
 
-- (void) navigationBarToRed:(ServerBrowserTableViewController *) sender{
+- (void) navigationBarToBeConnected:(ServerBrowserTableViewController *) sender{
+    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:90.0f/255.0f green:180.0f/255.0f blue:20.0f/255.0f alpha:0.5f]];
+    NSLog(@"navigationBarToBeConnected >>> openedConnectedView");
 }
 
 - (void) navigationBarToBeDisconnected:(ServerBrowserTableViewController *) sender{
@@ -90,16 +103,17 @@
     // notification that the other side has made its connection with this side
     serverRunningVC.server = server;
     [self.navigationController pushViewController:(UIViewController *)serverRunningVC animated:YES];
+//    serverRunningVC.title = [_server getServerName];
     // connected set to green
-    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:90.0f/255.0f green:180.0f/255.0f blue:20.0f/255.0f alpha:0.5f]];
     NSLog(@"serverRunningVC.server >>> %@",serverRunningVC.server);
+    serverRunningVC.title = serverBrowserTVC.selectedTableViewName;
 }
 
 - (void)serverStopped:(Server *)server {
     NSLog(@"serverStopped >>> Server stopped");
     [self.navigationController popViewControllerAnimated:YES];
+    [self navigationBarToBeDisconnected:nil];
     // disconnected set to red
-    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
 }
 
 - (void)server:(Server *)server didNotStart:(NSDictionary *)errorDict {
@@ -126,7 +140,8 @@
 }
 
 - (void)serviceRemoved:(NSNetService *)service moreComing:(BOOL)more {
-    [serverBrowserTVC removeService:service moreComing:more];
+        [serverBrowserTVC removeService:service moreComing:more];
+
 }
 
 #pragma mark -
@@ -141,6 +156,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+//    [self refreshServer];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
