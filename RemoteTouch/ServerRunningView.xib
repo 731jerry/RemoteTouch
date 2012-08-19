@@ -52,7 +52,7 @@
 							<bytes key="NSWhite">MAA</bytes>
 						</object>
 						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
 							<integer value="256" key="IBUIAccessibilityTraits"/>
 						</object>
@@ -613,7 +613,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUITintColor" ref="599740917"/>
 						<string key="IBUINormalTitle">Left Click</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
@@ -637,7 +636,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUITintColor" ref="599740917"/>
 						<string key="IBUINormalTitle">Right Click</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
@@ -887,7 +885,7 @@
 					<object class="IBUIButton" id="306352017">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{114, 346}, {94, 71}}</string>
+						<string key="NSFrame">{{120, 346}, {81, 71}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="19414297"/>
@@ -900,7 +898,8 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">Keyboard</string>
+						<int key="IBUILineBreakMode">0</int>
+						<string key="IBUINormalTitle">Show Shortcuts</string>
 						<reference key="IBUIHighlightedTitleColor" ref="599740917"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>

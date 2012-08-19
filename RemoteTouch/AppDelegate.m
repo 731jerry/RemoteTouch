@@ -102,6 +102,7 @@
     // this is called when the remote side finishes joining with the socket as
     // notification that the other side has made its connection with this side
     serverRunningVC.server = server;
+    NSLog(@"self.message:%@", serverRunningVC.message);
     [self.navigationController pushViewController:(UIViewController *)serverRunningVC animated:YES];
 //    serverRunningVC.title = [_server getServerName];
     // connected set to green

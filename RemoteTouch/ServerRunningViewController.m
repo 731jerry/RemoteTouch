@@ -32,7 +32,6 @@
 #pragma mark -
 #pragma mark view
 - (void) viewDidLoad{
-    [touchView setUserInteractionEnabled:NO];
     
     keyboardField.hidden = YES;
     hiddenKeyboard = YES;
@@ -48,7 +47,7 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated{
-    [touchView setUserInteractionEnabled:NO];
+
     [self switchAction:self];
     keyboardField.hidden = YES;
     hiddenKeyboard = YES;
@@ -56,8 +55,14 @@
     
     hiddenAdditionalKeyToolBar = YES;
     hiddenOtherKeyToolBar = YES;
-
+    
+    [shortcutToolbarForTouchpad1 removeFromSuperview];
+    [shortcutToolbarForTouchpad2 removeFromSuperview];
+    hiddenshortcutToolbar = YES;
+    
     touchView.exclusiveTouch = NO;
+//    [self respondToHideShortcutToolbar];
+    [showKeyboardButton setTitle:@"Show Shortcuts" forState:UIControlStateNormal];
     
     NSString * messageFinal = [@"Connection To: " stringByAppendingString:[[UIDevice currentDevice] name]];
 	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
@@ -117,6 +122,7 @@ if (touchView.exclusiveTouch) {
     UITouch *touch = [touches anyObject];
     self.touchLastLocation = [touch locationInView:touchView];
 
+    [touchView setMultipleTouchEnabled:YES];
     self.accumulatedDistanceForX = 0;
     self.accumulatedDistanceForY = 0;
     
@@ -143,7 +149,7 @@ if (touchView.exclusiveTouch) {
         if (numTaps < 2)
         {
             NSLog(@">>> 1 tap");
-            [self performSelector:@selector(handleTwoFingerSingleTap) withObject:nil afterDelay:delay ];
+//            [self performSelector:@selector(handleTwoFingerSingleTap) withObject:nil afterDelay:delay ];
         }
     }
 }
@@ -172,72 +178,30 @@ if (touchView.exclusiveTouch) {
     
     if ([touches count] < 2) {
         NSLog(@"touch count == 1");
-        /*
-// option 1 -> error
-//        self.accumulatedDistanceForX += (touchLocation.x - self.touchLastLocation.x);
-//        self.accumulatedDistanceForY += (touchLocation.y - self.touchLastLocation.y);
-//        
-//        CGFloat fixedDistance = 5;
-//        if (self.accumulatedDistanceForX > fixedDistance || self.accumulatedDistanceForY > fixedDistance) {
-//    
-//            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
-//            [self handleOneFingerMoveWithCoordinateOffset:self.accumulatedDistanceForX :self.accumulatedDistanceForY];
-//
-//            while (self.accumulatedDistanceForX > fixedDistance || self.accumulatedDistanceForY > fixedDistance) {
-//                self.accumulatedDistanceForX -= (touchLocation.x - self.touchLastLocation.x);
-//                self.accumulatedDistanceForY -= (touchLocation.y - self.touchLastLocation.y);
-//            }
-//        }
-      
-// option 2 -> good but not best
-//        self.accumulatedDistanceForX += (touchLocation.x - self.touchLastLocation.x);
-//        self.accumulatedDistanceForY += (touchLocation.y - self.touchLastLocation.y);
-//
-//        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
-//        [self handleOneFingerMoveWithCoordinateOffset:self.accumulatedDistanceForX :self.accumulatedDistanceForY];
-
-// option 3 -> good than 2, but still not the best
-//    if (self.accumulatedDistanceForX == 0 && self.accumulatedDistanceForY == 0) {
-//            self.accumulatedDistanceForX += (touchLocation.x - self.touchLastLocation.x);
-//            self.accumulatedDistanceForY += (touchLocation.y - self.touchLastLocation.y);
-//            
-//            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
-//            [self handleOneFingerMoveWithCoordinateOffset:self.accumulatedDistanceForX :self.accumulatedDistanceForY];
-//    }
-//    else {
-//        if (touchLocation.x >= self.touchLastLocation.x) {
-//            self.accumulatedDistanceForX += (touchLocation.x - self.touchLastLocation.x) / 5;
-//        }
-//        else {
-//            self.accumulatedDistanceForX = (touchLocation.x - self.touchLastLocation.x);
-//            self.accumulatedDistanceForX += (touchLocation.x - self.touchLastLocation.x);
-//        }
-//        
-//        if (touchLocation.y >= self.touchLastLocation.y) {
-//            self.accumulatedDistanceForY += (touchLocation.y - self.touchLastLocation.y) / 5;
-//        }
-//        else {
-//            self.accumulatedDistanceForY = (touchLocation.y - self.touchLastLocation.y);
-//            self.accumulatedDistanceForY += (touchLocation.y - self.touchLastLocation.y);
-//        }
-//        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
-//        [self handleOneFingerMoveWithCoordinateOffset:self.accumulatedDistanceForX :self.accumulatedDistanceForY];
-//            
-//    }
-//        CGFloat distance = sqrtf(fabsf(powf(self.touchLastLocation.x - touchLocation.x, 2) + powf(self.touchLastLocation.y - touchLocation.y, 2)));
-//        [self handleOneFingerMoveWithOffsetDistance:distance];
-//        NSLog(@"distance: %f",distance);
-        */
-// option 4
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
         [self handleOneFingerMoveWithCoordinateOffset:(touchLocation.x - prevTouchLocation.x) :(touchLocation.y - prevTouchLocation.y)];
     }
-    if ([touches count] == 2){
+    else if ([touches count] == 2){
         NSLog(@"touch count == 2");
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleTwoFingerSingleTap) object:nil];
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerMove:) object:nil];
-        [self handleTwoFingerMove:touchLocation];
+        
+        CGFloat verticalDistance = touchLocation.y - prevTouchLocation.y;
+        NSLog(@"verticalrunning:%f",touchLocation.y - prevTouchLocation.y);
+        CGFloat horizontalDistance = touchLocation.x - prevTouchLocation.x;
+        NSLog(@"horizontalrunning:%f",touchLocation.x - prevTouchLocation.x);
+        if (fabs(verticalDistance) > fabs(horizontalDistance)) {
+            NSLog(@"verticalDistance running:%f",verticalDistance);
+            [self handleTwoFingerMoveVertical:verticalDistance];
+        } else {
+            NSLog(@"horizontalDistance running:%f",horizontalDistance);
+            [self handleTwoFingerMoveHorizontal:horizontalDistance];
+        }
+//        [self handleTwoFingerScrolling:horizontalDistance with:verticalDistance];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleTwoFingerSingleTap) object:nil];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerSingleTap) object:nil];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleOneFingerMove:) object:nil];
     }
    
     self.touchLastLocation = touchLocation;
@@ -270,10 +234,45 @@ if (touchView.exclusiveTouch) {
 }
 
 // scrolling
-- (void) handleTwoFingerMove:(CGPoint) touchLocation{
-    NSLog(@"handleTwoFingerMove -- scrolling");
+- (void) handleTwoFingerScrolling:(CGFloat) x with:(CGFloat) y{
+    [self sendWheelScrolling:x with:y];
 }
 
+- (void) handleTwoFingerMoveVertical:(CGFloat) verticalDistance{
+    NSLog(@"handleTwoFingerMove -- scrolling");
+    [self sendScrollVerticalDistance:verticalDistance];
+    
+}
+
+- (void) handleTwoFingerMoveHorizontal:(CGFloat) horizontalDistance{
+    NSLog(@"handleTwoFingerMove -- scrolling");
+    [self sendScrollHorizontalDistance:horizontalDistance];
+    
+}
+- (void) sendWheelScrolling:(CGFloat)x with:(CGFloat) y{
+    NSString * messageFinal = [NSString stringWithFormat:@"Scroll:%f+%f",x,y];
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",data);
+	[self.server sendData:data error:&error];
+}
+
+- (void) sendScrollVerticalDistance:(CGFloat) verticalDistance{
+    NSString *messageText = [NSString stringWithFormat:@"%f",verticalDistance];
+    NSString * messageFinal = [@"VerticalDistance:" stringByAppendingString:messageText];
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",data);
+	[self.server sendData:data error:&error];
+}
+- (void) sendScrollHorizontalDistance:(CGFloat) horizontalDistance{
+    NSString *messageText = [NSString stringWithFormat:@"%f",horizontalDistance];
+    NSString * messageFinal = [@"HorizontalDistance:" stringByAppendingString:messageText];
+	NSData *data = [messageFinal dataUsingEncoding:NSUTF8StringEncoding];
+	NSError *error = nil;
+    NSLog(@"%@",data);
+	[self.server sendData:data error:&error];
+}
 - (void) sendTouchLocation:(CGPoint) touchLocation{
     NSString *locationXString = [NSString stringWithFormat:@"%f", touchLocation.x];
     NSString *locationYString = [NSString stringWithFormat:@"%f", touchLocation.y];
@@ -664,15 +663,66 @@ if (touchView.exclusiveTouch) {
 }
 
 - (IBAction)touchViewShowKeyboardButtonAction {
-    [keyboardField becomeFirstResponder];
+    [self addShortcutToolbar];
 }
 
+- (void) addShortcutToolbar{
+    if (hiddenshortcutToolbar) {
+        shortcutToolbarForTouchpad1 = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 110, self.view.bounds.size.width, 38.0f)];
+        [shortcutToolbarForTouchpad1 setBarStyle:UIBarStyleBlackTranslucent];
+        shortcutToolbarForTouchpad1.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+        
+        // shortcutToolbarForTouchpad2
+        shortcutToolbarForTouchpad2 = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 148, self.view.bounds.size.width, 38.0f)];
+        [shortcutToolbarForTouchpad2 setBarStyle:UIBarStyleBlackTranslucent];
+        shortcutToolbarForTouchpad2.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+        
+        // up, down, left and right arrow button
+        UIBarButtonItem *UpArrowKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"↑", @"") style:UIBarButtonItemStylePlain target:self action:@selector(gamePlayUpArrow)];
+        UIBarButtonItem *DownArrowKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"↓", @"") style:UIBarButtonItemStylePlain target:self action:@selector(gamePlayDownArrow)];
+        UIBarButtonItem *LeftArrowKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"←", @"") style:UIBarButtonItemStylePlain target:self action:@selector(gamePlayLeftArrow)];
+        UIBarButtonItem *RightKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"→", @"") style:UIBarButtonItemStylePlain target:self action:@selector(gamePlayRightArrow)];
+        
+        UIBarButtonItem *fFiveKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"F5", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToFFiveKey)];
+        UIBarButtonItem *fSixKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"F6", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToFSixKey)];
+        
+        UIBarButtonItem *brightDownKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"☼", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToBrightDownKey)];
+        UIBarButtonItem *brightUpKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"☀", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToBrightUpKey)];
+        UIBarButtonItem *missionControlKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"^↑", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToMissionControlKey)];
+        
+        
+        UIBarButtonItem *newFileKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"+F", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToNewFileKey)];
+        UIBarButtonItem *commandDeleteKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"⌘Del", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToCommandDeleteKey)];
+        
+        UIBarButtonItem *commandSpaceKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"⌘␣", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToCommandSpaceKey)];
+        UIBarButtonItem *commandQKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"⌘Q", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToCommandQKey)];
+        
+        UIBarButtonItem *commandHKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"⌘H", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToCommandHKey)];
+        
+        UIBarButtonItem *desktopGoLeftKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"^←", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToDesktopGoLeftKey)];
+        
+        UIBarButtonItem *desktopGoRightKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"^→", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToDesktopGoRightKey)];
+        
+        [shortcutToolbarForTouchpad1 setItems:[NSArray arrayWithObjects:commandHKeyBarItem,commandSpaceKeyBarItem, desktopGoLeftKeyBarItem, desktopGoRightKeyBarItem,missionControlKeyBarItem, fFiveKeyBarItem, fSixKeyBarItem,nil]];
+        
+        [shortcutToolbarForTouchpad2 setItems:[NSArray arrayWithObjects:UpArrowKeyBarItem, DownArrowKeyBarItem, LeftArrowKeyBarItem, RightKeyBarItem, newFileKeyBarItem, commandDeleteKeyBarItem, commandQKeyBarItem, brightDownKeyBarItem, brightUpKeyBarItem,nil]];
+        [self.view addSubview:shortcutToolbarForTouchpad1];
+        [self.view addSubview:shortcutToolbarForTouchpad2];
+        
+        [showKeyboardButton setTitle:@"Hide Shortcuts" forState:UIControlStateNormal];
+        hiddenshortcutToolbar = NO;
+    }
+    else {
+        [showKeyboardButton setTitle:@"Show Shortcuts" forState:UIControlStateNormal];
+        [shortcutToolbarForTouchpad1 removeFromSuperview];
+        [shortcutToolbarForTouchpad2 removeFromSuperview];
+        hiddenshortcutToolbar = YES;
+    }
+}
 - (IBAction)appleScriptInputToCallKeyBoard:(UITextField *)sender {
     NSLog(@"apple script is editing %d", sender.editing);
     [appleScriptInputText becomeFirstResponder];
 }
-
-
 
 //- (IBAction)appleScriptInputToCallKeyBoard:(UITextField *)sender {
 //    NSLog(@"is editing %d", sender.editing);
@@ -794,6 +844,8 @@ if (touchView.exclusiveTouch) {
         UIBarButtonItem *commandAKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"⌘A", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToCommandAKey)];
         UIBarButtonItem *commandHKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"⌘H", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToCommandHKey)];
         
+        UIBarButtonItem *newFileKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"+F", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToNewFileKey)];
+        UIBarButtonItem *commandDeleteKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"⌘Del", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToCommandDeleteKey)];
         // ␣
         UIBarButtonItem *spaceKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"␣", @"") style:UIBarButtonItemStylePlain target:self action:@selector(respondToSpaceKey)];
         
@@ -803,8 +855,15 @@ if (touchView.exclusiveTouch) {
         UIBarButtonItem *LeftArrowKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"←", @"") style:UIBarButtonItemStylePlain target:self action:@selector(gamePlayLeftArrow)];
         UIBarButtonItem *RightKeyBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"→", @"") style:UIBarButtonItemStylePlain target:self action:@selector(gamePlayRightArrow)];
         
-        [keyboardOtherKeyToolBar setItems:[NSArray arrayWithObjects:commandAKeyBarItem, commandHKeyBarItem, spaceKeyBarItem,UpArrowKeyBarItem, DownArrowKeyBarItem, LeftArrowKeyBarItem, RightKeyBarItem, spaceBarItem, nil]];
+        [keyboardOtherKeyToolBar setItems:[NSArray arrayWithObjects:commandAKeyBarItem, commandHKeyBarItem, spaceKeyBarItem,UpArrowKeyBarItem, DownArrowKeyBarItem, LeftArrowKeyBarItem, RightKeyBarItem, spaceBarItem, commandDeleteKeyBarItem, newFileKeyBarItem, nil]];
     }
+}
+
+- (void) respondToDesktopGoLeftKey{
+    [self sendComparableDataWithString:@"DesktopGoLeft"];
+}
+- (void) respondToDesktopGoRightKey{
+    [self sendComparableDataWithString:@"DesktopGoRight"];
 }
 - (void) respondToCommandAKey{
     [self cmdA];
@@ -817,6 +876,12 @@ if (touchView.exclusiveTouch) {
 }
 - (void) respondToCommandZKey{
     [self cmdZ];
+}
+- (void) respondToNewFileKey{
+    [self sendComparableDataWithString:@"NewFile"];
+}
+- (void) respondToCommandDeleteKey{
+    [self sendComparableDataWithString:@"CommandDelete"];
 }
 - (void) respondToBrightDownKey{
     [self sendComparableDataWithString:@"BrightDown"];

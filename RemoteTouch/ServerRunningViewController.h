@@ -14,12 +14,15 @@
     BOOL hiddenKeyboard;
     BOOL hiddenAdditionalKeyToolBar;
     BOOL hiddenOtherKeyToolBar;
-    
+    BOOL hiddenshortcutToolbar;
 //    UITextField *keyboardField;
     __weak IBOutlet UITextField *keyboardField;
     UIToolbar *keyboardShortcutToolbar;
     UIToolbar *keyboardAdditionalKeyToolBar;
     UIToolbar *keyboardOtherKeyToolBar;
+    
+    UIToolbar *shortcutToolbarForTouchpad1;
+    UIToolbar *shortcutToolbarForTouchpad2;
     
 //    UIToolbar *keyboardToolbar;
 	IBOutlet UISegmentedControl *segments;

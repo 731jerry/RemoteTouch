@@ -343,6 +343,8 @@ static void SocketAcceptedConnectionCallBack(CFSocketRef socket,
 - (void)netServiceBrowser:(NSNetServiceBrowser*)netServiceBrowser
            didFindService:(NSNetService*)service
                moreComing:(BOOL)moreComing {
+//    service
+    
 	if(![service.name isEqual:self.localService.name]) {
         [self.delegate serviceAdded:service moreComing:moreComing];
     }
