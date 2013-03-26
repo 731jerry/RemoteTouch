@@ -2,8 +2,8 @@
 //  ServerRunningViewController.m
 //  NetworkingTesting
 //
-//  Created by Bill Dudney on 2/20/09.
-//  Copyright 2009 Gala Factory Software LLC. All rights reserved.
+//  Created by Jerry Zhu on 8/13/12.
+//  Copyright (c) 2012 Jerry Zhu. All rights reserved.
 //
 
 #import "ServerRunningViewController.h"
@@ -391,6 +391,10 @@ if (touchView.exclusiveTouch) {
             touchViewLeftClick.hidden = NO;
             touchViewRightClick.hidden = NO;
             touchViewShowKeyboardButton.hidden = NO;
+            
+            [shortcutToolbarForTouchpad1 removeFromSuperview];
+            [shortcutToolbarForTouchpad2 removeFromSuperview];
+            hiddenshortcutToolbar = YES;
             break;
         case 4:
             [self hiddenAll];
@@ -422,6 +426,9 @@ if (touchView.exclusiveTouch) {
             gamePlayLeftButton.hidden = NO;
             gamePlayRightButton.hidden = NO;
             
+            [shortcutToolbarForTouchpad1 removeFromSuperview];
+            [shortcutToolbarForTouchpad2 removeFromSuperview];
+            hiddenshortcutToolbar = YES;
             break;
         case 2:
             [self hiddenAll];
@@ -433,6 +440,9 @@ if (touchView.exclusiveTouch) {
             KeynoteBeginFromFirstPage.hidden = NO;
             KeynoteExitPresentation.hidden = NO;
             
+            [shortcutToolbarForTouchpad1 removeFromSuperview];
+            [shortcutToolbarForTouchpad2 removeFromSuperview];
+            hiddenshortcutToolbar = YES;
             break;
         default:
             [self hiddenAll];
@@ -448,6 +458,10 @@ if (touchView.exclusiveTouch) {
             vol2.hidden = NO;
             vol3.hidden = NO;
             vol4.hidden = NO;
+            
+            [shortcutToolbarForTouchpad1 removeFromSuperview];
+            [shortcutToolbarForTouchpad2 removeFromSuperview];
+            hiddenshortcutToolbar = YES;
             break;
     }
 }
@@ -1004,6 +1018,8 @@ if (touchView.exclusiveTouch) {
     KeynoteBeginFromFirstPage = nil;
     KeynoteBeginFromCurrentPage = nil;
     touchViewShowKeyboardButton = nil;
+    
+//    serverRunningVC = nil;
     
     [super viewDidUnload];
 }

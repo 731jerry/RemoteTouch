@@ -125,7 +125,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     }
     else {
         NSLog(@"!_server.isConnectSuccessfully");
-        [self.delegate navigationBarToBeDisconnected:self];
+//        [self.delegate navigationBarToBeDisconnected:self];
         NSLog(@"connecttion successful? - %@",_server.isConnectSuccessfully ? @"True":@"False");
     }
 //    if (self.services == nil) {
@@ -175,7 +175,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (void)addService:(NSNetService *)service moreComing:(BOOL)more {
     if (![service.name isEqualToString:[[UIDevice currentDevice] name]]) {
-        [self.delegate navigationBarToBeReadyToConnceted:self];
+//        [self.delegate navigationBarToBeReadyToConnceted:self];
         [self.services addObject:service];
         if(!more) {
             [self.tableView reloadData];
@@ -187,7 +187,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (void)removeService:(NSNetService *)service moreComing:(BOOL)more {
     if ([self.services count] > 0){
-        [self.delegate navigationBarToBeReadyToConnceted:self];
+//        [self.delegate navigationBarToBeReadyToConnceted:self];
         NSLog(@"servers count = %d",self.services.count);
         [self.services removeObject:service];
         NSLog(@"servers count = %d",self.services.count);
@@ -197,7 +197,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     }
     if ([self.services count] == 0){
         if (!openedConnectedView) {
-            [self.delegate navigationBarToBeDisconnected:self];
+//            [self.delegate navigationBarToBeDisconnected:self];
             NSLog(@"servers count == 0");
         }
     }
@@ -241,7 +241,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 //    self.services = nil;
     self.selectedTableViewName = (NSString *)[[self.services objectAtIndex:indexPath.row] name];
     openedConnectedView = YES;
-    [self.delegate navigationBarToBeConnected:self];
+//    [self.delegate navigationBarToBeConnected:self];
     
 }
 

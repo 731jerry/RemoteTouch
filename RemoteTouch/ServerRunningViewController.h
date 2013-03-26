@@ -2,8 +2,8 @@
 //  ServerRunningViewController.h
 //  NetworkingTesting
 //
-//  Created by Bill Dudney on 2/20/09.
-//  Copyright 2009 Gala Factory Software LLC. All rights reserved.
+//  Created by Jerry Zhu on 8/13/12.
+//  Copyright (c) 2012 Jerry Zhu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

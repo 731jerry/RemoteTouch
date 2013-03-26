@@ -79,21 +79,24 @@
 - (IBAction)refreshServerListButton:(id)sender {
     [self refreshServer];
 }
-
-- (void) navigationBarToBeConnected:(ServerBrowserTableViewController *) sender{
-    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:90.0f/255.0f green:180.0f/255.0f blue:20.0f/255.0f alpha:0.5f]];
-    NSLog(@"navigationBarToBeConnected >>> openedConnectedView");
+- (IBAction)enterIPAddressButton:(id)sender {
+    
 }
 
-- (void) navigationBarToBeDisconnected:(ServerBrowserTableViewController *) sender{
-    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
-    NSLog(@"navigationBarToBeDisconnected >>> ");
-}
-- (void) navigationBarToBeReadyToConnceted:(ServerBrowserTableViewController *) sender{
-    // ready to be connect set to orange
-    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0f]];
-    NSLog(@"navigationBarToBeReadyToConnceted >>> ");
-}
+//- (void) navigationBarToBeConnected:(ServerBrowserTableViewController *) sender{
+//    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:90.0f/255.0f green:180.0f/255.0f blue:20.0f/255.0f alpha:0.5f]];
+//    NSLog(@"navigationBarToBeConnected >>> openedConnectedView");
+//}
+//
+//- (void) navigationBarToBeDisconnected:(ServerBrowserTableViewController *) sender{
+//    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:100.0f/255.0f alpha:1.0f]];
+//    NSLog(@"navigationBarToBeDisconnected >>> ");
+//}
+//- (void) navigationBarToBeReadyToConnceted:(ServerBrowserTableViewController *) sender{
+//    // ready to be connect set to orange
+//    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:255.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0f]];
+//    NSLog(@"navigationBarToBeReadyToConnceted >>> ");
+//}
 
 #pragma mark Server Delegate Methods
 
@@ -106,14 +109,16 @@
     [self.navigationController pushViewController:(UIViewController *)serverRunningVC animated:YES];
 //    serverRunningVC.title = [_server getServerName];
     // connected set to green
+//    serverRunningVC = nil;
     NSLog(@"serverRunningVC.server >>> %@",serverRunningVC.server);
     serverRunningVC.title = serverBrowserTVC.selectedTableViewName;
+//    serverRunningVC = nil;
 }
 
 - (void)serverStopped:(Server *)server {
     NSLog(@"serverStopped >>> Server stopped");
     [self.navigationController popViewControllerAnimated:YES];
-    [self navigationBarToBeDisconnected:nil];
+//    [self navigationBarToBeDisconnected:nil];
     // disconnected set to red
 }
 
